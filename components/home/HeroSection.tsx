@@ -67,7 +67,7 @@ export default function HeroSection() {
                 Explorar Conteúdo
                 <ArrowRight size={16} />
               </Button>
-              <Button variant="outline" size="lg" href="https://veloxhub.com.br/planos">
+              <Button variant="outline" size="lg" href="/planos">
                 Começar Gratuitamente
               </Button>
             </motion.div>

@@ -13,7 +13,7 @@ const TOOLS = [
   { id: 'video-gen', name: 'Gerador de Vídeos', desc: 'Shorts e Reels automáticos a partir dos seus artigos.', icon: '🎬', badge: 'Beta', href: '/ferramentas/gerador-videos' },
   { id: 'title-gen', name: 'Gerador de Títulos', desc: '10 variações de títulos com gatilhos mentais para máximo CTR.', icon: '💡', href: '/ferramentas/gerador-titulos' },
   { id: 'seo-analyzer', name: 'Analisador SEO', desc: 'Auditoria técnica e sugestões de melhoria para qualquer URL.', icon: '📊', href: '/ferramentas/analisador-seo' },
-  { id: 'skills', name: 'Skills para Claude', desc: '20 automações prontas para o Claude — publique em 5 redes sem esforço.', icon: '⚡', badge: 'R$47', href: 'https://veloxhub.com.br/skills.html' },
+  { id: 'skills', name: 'Skills para Claude', desc: '20 automações prontas para o Claude — publique em 5 redes sem esforço.', icon: '⚡', badge: 'R$47', href: '/skills.html' },
 ]
 
 export default function ToolsSection() {

@@ -31,7 +31,7 @@ export default function CTASection() {
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center">
-            <Button variant="primary" size="lg" href="https://veloxhub.com.br/planos">
+            <Button variant="primary" size="lg" href="/planos">
               Assine Agora <ArrowRight size={16} />
             </Button>
             <Button variant="outline" size="lg" href="/blog">

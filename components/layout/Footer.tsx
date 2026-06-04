@@ -9,7 +9,7 @@ const COLUMNS = [
       { label: 'Blog', href: '/blog' },
       { label: 'Contato', href: '/contato' },
       { label: 'Newsletter', href: '/newsletter' },
-      { label: 'Área de Membros', href: 'https://veloxhub.com.br/membros' },
+      { label: 'Área de Membros', href: 'https://wp.veloxhub.com.br/membros/' },
     ],
   },
   {
@@ -18,8 +18,8 @@ const COLUMNS = [
       { label: 'Hub de Ferramentas', href: '/ferramentas' },
       { label: 'Gerador SEO', href: '/ferramentas/gerador-seo' },
       { label: 'Gerador de Posts', href: '/ferramentas/gerador-posts' },
-      { label: 'Skills para Claude', href: 'https://veloxhub.com.br/skills.html' },
-      { label: 'Ver Planos', href: 'https://veloxhub.com.br/planos' },
+      { label: 'Skills para Claude', href: '/skills.html' },
+      { label: 'Ver Planos', href: '/planos' },
     ],
   },
   {
@@ -45,8 +45,8 @@ const COLUMNS = [
   {
     title: 'Legal',
     links: [
-      { label: 'Privacidade', href: 'https://veloxhub.com.br/politica-de-privacidade' },
-      { label: 'Termos de Uso', href: 'https://veloxhub.com.br/termos' },
+      { label: 'Privacidade', href: 'https://wp.veloxhub.com.br/politica-de-privacidade/' },
+      { label: 'Termos de Uso', href: 'https://wp.veloxhub.com.br/termos/' },
       { label: 'Cookies', href: '#' },
     ],
   },

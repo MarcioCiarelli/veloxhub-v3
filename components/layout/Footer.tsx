@@ -126,13 +126,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-secondary/60">
+        <div className="pt-8 border-t border-border/50 text-center text-xs text-text-secondary/60">
           <span>© {new Date().getFullYear()} VeloxHub. Todos os direitos reservados.</span>
-          <div className="flex gap-4">
-            <Link href="/privacidade" className="hover:text-text-secondary transition-colors">Privacidade</Link>
-            <Link href="/termos" className="hover:text-text-secondary transition-colors">Termos</Link>
-            <Link href="/cookies" className="hover:text-text-secondary transition-colors">Cookies</Link>
-          </div>
         </div>
       </div>
     </footer>

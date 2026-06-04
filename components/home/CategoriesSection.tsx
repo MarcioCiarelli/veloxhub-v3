@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 const CATEGORIES = [
-  { emoji: '🤖', label: 'IA', slug: 'ia', desc: 'ChatGPT, Gemini, Claude e as melhores ferramentas de inteligência artificial.', count: 45, color: '#FFD400' },
-  { emoji: '⚙️', label: 'Automação', slug: 'automacao', desc: 'N8N, Zapier, Make e fluxos para automatizar seu trabalho.', count: 38, color: '#60A5FA' },
-  { emoji: '📣', label: 'Marketing', slug: 'marketing', desc: 'Estratégias de conteúdo, tráfego pago e crescimento orgânico.', count: 52, color: '#F472B6' },
-  { emoji: '🔍', label: 'SEO', slug: 'seo', desc: 'Rank no Google, palavras-chave e otimização técnica.', count: 31, color: '#34D399' },
-  { emoji: '🚀', label: 'Produtividade', slug: 'produtividade', desc: 'Sistemas, hábitos e ferramentas para fazer mais em menos tempo.', count: 29, color: '#A78BFA' },
-  { emoji: '💰', label: 'Monetização', slug: 'monetizacao', desc: 'Infoprodutos, SaaS, affiliate e como gerar renda com IA.', count: 24, color: '#FB923C' },
+  { emoji: '🤖', label: 'Inteligência Artificial', slug: 'inteligencia-artificial', desc: 'ChatGPT, Gemini, Claude e as melhores ferramentas de IA.', count: 13, color: '#FFD400' },
+  { emoji: '⚡', label: 'Tecnologia', slug: 'tecnologia', desc: 'Reviews, tutoriais e dicas de ferramentas digitais.', count: 8, color: '#60A5FA' },
+  { emoji: '💰', label: 'Finanças', slug: 'financas', desc: 'Investimentos, renda extra e controle financeiro.', count: 9, color: '#34D399' },
+  { emoji: '🚀', label: 'Produtividade', slug: 'produtividade', desc: 'Sistemas, hábitos e ferramentas para render mais.', count: 10, color: '#A78BFA' },
+  { emoji: '📣', label: 'Marketing', slug: 'marketing', desc: 'Estratégias de conteúdo, tráfego pago e crescimento orgânico.', count: 1, color: '#F472B6' },
+  { emoji: '💼', label: 'Negócios', slug: 'negocios', desc: 'Empreendedorismo, gestão e como escalar seu negócio.', count: 0, color: '#FB923C' },
 ]
 
 export default function CategoriesSection() {

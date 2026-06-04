@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeloxHub Skills — O Claude que Trabalha Enquanto Você Dorme</title>
+<meta name="description" content="20 Skills prontas para transformar o Claude no seu funcionário mais produtivo. R$47 apenas.">
+<meta property="og:title" content="VeloxHub Skills — Pack de 20 Skills para o Claude">
+<meta property="og:description" content="Instala em segundos. Usa para sempre. O Claude vira um funcionário que não dorme.">
+
+<!-- Meta Pixel -->
+<!-- <script>!function(f,b,e,v,n,t,s){...fbq('init','SEU_PIXEL_ID');fbq('track','PageView');</script> -->
+<!-- GA4 -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:      #080c14;
+  --surface: #0d1320;
+  --surface2:#111827;
+  --border:  rgba(255,255,255,0.07);
+  --accent:  #00d4ff;
+  --accent2: #7c3aff;
+  --accent3: #00ff88;
+  --text:    #e8edf5;
+  --muted:   #6b7894;
+  --heading: 'Bebas Neue', sans-serif;
+  --body:    'Outfit', sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* NOISE */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:9999;
+  opacity:.4;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:68px;
+  background:rgba(8,12,20,.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:var(--heading);
+  font-size:28px;letter-spacing:3px;
+  color:var(--text);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo span{color:var(--accent)}
+.nav-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 12px var(--accent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-tag{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--accent);border:1px solid rgba(0,212,255,.3);
+  padding:6px 16px;border-radius:4px;
+}
+.nav-back{
+  color:var(--muted);font-size:14px;text-decoration:none;
+  display:flex;align-items:center;gap:6px;
+  transition:color .2s;
+}
+.nav-back:hover{color:var(--text)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:100px 48px 80px;
+  position:relative;overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 65% 40%,rgba(0,212,255,.07) 0%,transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%,rgba(124,58,255,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%,rgba(0,255,136,.04) 0%,transparent 60%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,212,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,255,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);
+}
+
+.hero-content{position:relative;z-index:2;max-width:620px}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);
+  border-radius:100px;padding:6px 16px;
+  font-size:13px;color:var(--accent);font-weight:500;
+  margin-bottom:28px;
+  animation:fadeUp .5s ease both;
+}
+.hero-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);box-shadow:0 0 8px var(--accent);
+}
+
+.hero h1{
+  font-family:var(--heading);
+  font-size:clamp(48px,7vw,80px);
+  line-height:.95;letter-spacing:2px;
+  margin-bottom:24px;
+  animation:fadeUp .5s .1s ease both;
+}
+.hero h1 .dim{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.2);
+}
+.hero h1 .hi{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-sub{
+  font-size:17px;color:var(--muted);
+  max-width:500px;margin-bottom:36px;
+  font-weight:300;line-height:1.7;
+  animation:fadeUp .5s .2s ease both;
+}
+.hero-sub strong{color:var(--text);font-weight:600}
+
+/* Preço */
+.hero-price{
+  display:flex;align-items:baseline;gap:14px;
+  margin-bottom:28px;
+  animation:fadeUp .5s .25s ease both;
+}
+.price-old{font-size:18px;color:var(--muted);text-decoration:line-through}
+.price-new{
+  font-family:var(--heading);font-size:56px;
+  color:var(--accent);line-height:1;letter-spacing:1px;
+}
+.price-info{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* Botões */
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--accent);color:#000;
+  font-family:var(--body);font-weight:700;font-size:15px;
+  padding:14px 32px;border-radius:8px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .2s;letter-spacing:.3px;
+  animation:fadeUp .5s .3s ease both;
+}
+.btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,212,255,.3)}
+.btn-primary svg{transition:transform .2s}
+.btn-primary:hover svg{transform:translateX(4px)}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--muted);font-size:14px;font-weight:500;
+  text-decoration:none;border:none;background:none;
+  cursor:pointer;transition:color .2s;
+  font-family:var(--body);
+  animation:fadeUp .5s .35s ease both;
+}
+.btn-ghost:hover{color:var(--text)}
+
+.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+
+.hero-hint{
+  font-size:12px;color:var(--muted);margin-top:12px;
+  letter-spacing:.5px;
+  animation:fadeUp .5s .4s ease both;
+}
+
+/* Stats */
+.hero-stats{
+  display:flex;gap:36px;
+  margin-top:48px;padding-top:36px;
+  border-top:1px solid var(--border);
+  animation:fadeUp .5s .45s ease both;
+}
+.stat-num{font-family:var(--heading);font-size:32px;color:var(--accent);letter-spacing:1px}
+.stat-label{font-size:13px;color:var(--muted);margin-top:2px}
+
+/* Hero visual — cards flutuantes */
+.hero-visual{
+  position:absolute;right:48px;top:50%;
+  transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:12px;
+  z-index:2;
+  animation:fadeLeft .7s .3s ease both;
+}
+.float-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;padding:18px 22px;width:280px;
+  backdrop-filter:blur(10px);
+  transition:all .3s;cursor:default;
+}
+.float-card:hover{
+  border-color:rgba(0,212,255,.25);
+  transform:translateX(-6px);
+  background:var(--surface2);
+}
+.float-card-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.float-card-title{font-size:14px;font-weight:500;line-height:1.4}
+.float-card-meta{
+  display:flex;align-items:center;gap:8px;
+  margin-top:12px;padding-top:12px;
+  border-top:1px solid var(--border);
+  font-size:12px;color:var(--muted);
+}
+.skill-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent3);box-shadow:0 0 6px var(--accent3);
+}
+
+/* ── TICKER ── */
+.ticker{
+  background:rgba(0,212,255,.08);
+  border-top:1px solid rgba(0,212,255,.15);
+  border-bottom:1px solid rgba(0,212,255,.15);
+  padding:12px 0;overflow:hidden;white-space:nowrap;
+}
+.ticker-track{display:inline-flex;animation:scroll 30s linear infinite}
+.ticker-item{
+  font-size:13px;font-weight:600;color:var(--accent);
+  letter-spacing:1px;padding:0 28px;
+}
+.ticker-sep{color:rgba(0,212,255,.3)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── SECTIONS ── */
+.section{padding:90px 48px;position:relative}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--accent);font-weight:600;margin-bottom:14px}
+.section-title{font-family:var(--heading);font-size:clamp(36px,5vw,54px);letter-spacing:1px;line-height:1;margin-bottom:16px}
+
+/* ── PROBLEMA ── */
+.problema{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.problema-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:72px;align-items:center;max-width:1100px;margin:0 auto;
+}
+.problema-text p{color:var(--muted);font-size:15px;margin-bottom:18px;line-height:1.8}
+.problema-text p strong{color:var(--text)}
+
+/* Terminal */
+.terminal{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:12px;overflow:hidden;
+}
+.terminal+.terminal{margin-top:12px}
+.t-bar{
+  background:rgba(255,255,255,.03);
+  padding:10px 16px;display:flex;align-items:center;gap:8px;
+  border-bottom:1px solid var(--border);
+}
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-r{background:#ff5f57}.t-y{background:#ffbd2e}.t-g{background:#28c840}
+.t-name{font-size:11px;color:var(--muted);margin:0 auto;letter-spacing:1px}
+.t-body{padding:18px 22px;font-size:13px;line-height:2;font-family:'Outfit',monospace}
+.t-p{color:var(--accent)}.t-c{color:var(--text)}.t-o{color:var(--muted)}
+.t-err{color:#ff6b6b}.t-ok{color:var(--accent3)}
+
+/* ── SKILLS GRID ── */
+.skills-section{background:var(--bg)}
+.skills-intro{text-align:center;max-width:600px;margin:0 auto 48px}
+.skills-intro p{color:var(--muted);font-size:15px;margin-top:12px}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
+  gap:16px;
+  max-width:1100px;margin:0 auto;
+}
+
+.skill-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;padding:26px;
+  position:relative;overflow:hidden;
+  transition:all .3s;cursor:default;
+}
+.skill-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.skill-card:hover{
+  border-color:rgba(0,212,255,.2);
+  transform:translateY(-4px);
+  background:var(--surface2);
+}
+.skill-card:hover::before{opacity:1}
+
+.skill-num{font-size:11px;color:var(--muted);letter-spacing:2px;margin-bottom:10px}
+.skill-name{font-family:var(--heading);font-size:22px;letter-spacing:1px;margin-bottom:8px;color:var(--text)}
+.skill-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.skill-footer{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--border);
+}
+.skill-tag{
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;
+}
+.tag-mkt{background:rgba(0,212,255,.1);color:var(--accent)}
+.tag-neg{background:rgba(124,58,255,.12);color:#a78bfa}
+.tag-prod{background:rgba(0,255,136,.1);color:var(--accent3)}
+.tag-bonus{background:rgba(255,255,255,.05);color:var(--muted)}
+
+.skill-arrow{color:var(--accent);opacity:0;transition:opacity .2s;font-size:18px}
+.skill-card:hover .skill-arrow{opacity:1}
+
+/* Card destaque */
+.skill-card.highlight{
+  border-color:rgba(0,212,255,.25);
+  background:linear-gradient(135deg,rgba(0,212,255,.06) 0%,rgba(124,58,255,.06) 100%);
+}
+.skill-card.highlight::before{opacity:1;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+/* ── ORDER BUMP ── */
+.order-bump{
+  max-width:800px;margin:52px auto 0;
+  border:1px dashed rgba(124,58,255,.4);
+  border-radius:12px;padding:32px;
+  background:rgba(124,58,255,.04);
+  position:relative;
+  transition:all .3s;
+}
+.order-bump.active{
+  border-color:rgba(124,58,255,.7);
+  background:rgba(124,58,255,.08);
+}
+.bump-label{
+  position:absolute;top:-13px;left:24px;
+  background:var(--accent2);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:4px 14px;border-radius:4px;
+}
+.bump-row{display:flex;gap:20px;align-items:flex-start}
+.bump-checkbox{
+  width:24px;height:24px;border-radius:6px;
+  border:2px solid rgba(124,58,255,.5);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;margin-top:4px;
+  transition:all .2s;background:transparent;
+}
+.bump-checkbox:hover{border-color:var(--accent2);background:rgba(124,58,255,.15)}
+.bump-checkbox.on{background:var(--accent2);border-color:var(--accent2)}
+.bump-checkbox.on::after{content:'✓';color:#fff;font-size:14px;font-weight:700}
+.bump-title{font-family:var(--heading);font-size:22px;letter-spacing:1px;margin-bottom:8px}
+.bump-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.bump-price{display:flex;align-items:baseline;gap:10px}
+.bump-old{font-size:14px;color:var(--muted);text-decoration:line-through}
+.bump-new{font-family:var(--heading);font-size:30px;color:#a78bfa;letter-spacing:1px}
+
+/* ── CTA FINAL ── */
+.cta-section{
+  text-align:center;padding:90px 48px;
+  position:relative;overflow:hidden;
+}
+.cta-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(0,212,255,.06) 0%,transparent 70%);
+}
+.total-box{
+  display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:24px 48px;margin-bottom:28px;
+  position:relative;z-index:2;
+}
+.total-label{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.total-value{font-family:var(--heading);font-size:52px;color:var(--accent);letter-spacing:2px;line-height:1}
+.total-desc{font-size:13px;color:var(--muted)}
+
+.cta-actions{position:relative;z-index:2}
+
+.garantia{
+  max-width:540px;margin:48px auto 0;
+  border:1px solid rgba(0,255,136,.15);
+  border-radius:12px;padding:32px;text-align:center;
+  position:relative;z-index:2;
+}
+.garantia-icon{font-size:36px;margin-bottom:12px}
+.garantia-title{font-family:var(--heading);font-size:22px;letter-spacing:1px;margin-bottom:10px;color:var(--accent3)}
+.garantia-text{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* ── FAQ ── */
+.faq-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-list{max-width:760px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border);padding:22px 0;cursor:pointer}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:16px;font-weight:600;color:var(--text);gap:16px;
+}
+.faq-icon{color:var(--accent);font-size:22px;flex-shrink:0;transition:transform .2s}
+.faq-a{
+  font-size:14px;color:var(--muted);line-height:1.8;
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding-top .35s;
+}
+.faq-item.open .faq-a{max-height:300px;padding-top:14px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+
+/* ── FOOTER ── */
+footer{
+  padding:40px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--border);
+  font-size:13px;color:var(--muted);
+}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--text)}
+.footer-links{display:flex;gap:20px}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeLeft{from{opacity:0;transform:translate(20px,-50%)}to{opacity:1;transform:translate(0,-50%)}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-visual{display:none}
+  .hero{justify-content:center}
+  .hero-content{max-width:100%}
+}
+@media(max-width:768px){
+  nav{padding:0 20px}
+  .hero{padding:90px 20px 60px}
+  .section{padding:60px 20px}
+  .problema-inner{grid-template-columns:1fr;gap:32px}
+  .hero-stats{gap:24px;flex-wrap:wrap}
+  .cta-section{padding:60px 20px}
+  footer{padding:32px 20px;flex-direction:column;gap:16px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+
+<style>
+#preloader{
+  position:fixed;inset:0;
+  background:#080c14;
+  z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity 0.4s ease;
+}
+#preloader.hide{opacity:0;pointer-events:none}
+.pre-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:32px;letter-spacing:4px;
+  color:#e8edf5;
+  animation:prePulse 1s ease infinite;
+}
+.pre-logo span{color:#00d4ff}
+@keyframes prePulse{0%,100%{opacity:1}50%{opacity:0.4}}
+</style>
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-logo">VELOX<span>HUB</span></div>
+</div>
+<script>
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    var p = document.getElementById('preloader');
+    if(p){ p.classList.add('hide'); setTimeout(function(){ p.remove(); }, 400); }
+  }, 300);
+});
+</script>
+
+<!-- NAV -->
+<nav>
+  <a href="https://veloxhub.com.br" class="nav-logo">VELOX<span>HUB</span> <div class="nav-dot"></div></a>
+  <div class="nav-right">
+    <a href="https://veloxhub.com.br" class="nav-back">← Voltar ao site</a>
+    <span class="nav-tag">Skills Pack</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">20 Skills prontas para instalar agora</div>
+
+    <h1>
+      O CLAUDE<br>
+      <span class="dim">SOZINHO</span><br>
+      <span class="hi">VALE POUCO.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Com as <strong>Skills certas instaladas</strong>, ele para de responder de forma genérica
+      e começa a executar como um especialista sênior — no seu tom, no seu formato, com a sua profundidade.
+    </p>
+
+    <div class="hero-price">
+      <span class="price-old">R$197</span>
+      <span class="price-new">R$47</span>
+      <span class="price-info">pagamento único<br>acesso vitalício</span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://pay.cakto.com.br/m2uy3q7_913313" class="btn-primary">
+        Quero as 20 Skills agora
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <p class="hero-hint">// Pagamento seguro · Acesso imediato · Garantia de 7 dias</p>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">20</div>
+        <div class="stat-label">Skills no pack</div>
+      </div>
+      <div>
+        <div class="stat-num">60s</div>
+        <div class="stat-label">Para instalar</div>
+      </div>
+      <div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Usos por dia</div>
+      </div>
+      <div>
+        <div class="stat-num">7d</div>
+        <div class="stat-label">Garantia total</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards flutuantes -->
+  <div class="hero-visual">
+    <div class="float-card">
+      <div class="float-card-label">⚡ Skill ativa</div>
+      <div class="float-card-title">Social Media PRO — gerando post para Instagram com hook e CTA...</div>
+      <div class="float-card-meta"><span class="skill-dot"></span> Executando em tempo real</div>
+    </div>
+    <div class="float-card">
+      <div class="float-card-label">📈 Skill ativa</div>
+      <div class="float-card-title">Análise Financeira — interpretando DRE e gerando relatório executivo...</div>
+      <div class="float-card-meta"><span class="skill-dot"></span> Resultado em segundos</div>
+    </div>
+    <div class="float-card">
+      <div class="float-card-label">✍️ Skill ativa</div>
+      <div class="float-card-title">Copywriter de Vendas — estruturando landing page com framework AIDA...</div>
+      <div class="float-card-meta"><span class="skill-dot"></span> Pronto para publicar</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Social Media PRO</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Email Vendas</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">SEO Writer</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Análise Financeira</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Copywriter de Vendas</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Criador de Curso</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Roteirista de Vídeo</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Gestor de Projetos</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Tráfego Pago</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Atendimento VIP</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Social Media PRO</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Email Vendas</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">SEO Writer</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Análise Financeira</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Copywriter de Vendas</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Criador de Curso</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Roteirista de Vídeo</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Gestor de Projetos</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Tráfego Pago</span><span class="ticker-sep"> ◆ </span>
+    <span class="ticker-item">Atendimento VIP</span><span class="ticker-sep"> ◆ </span>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section class="section problema">
+  <div class="problema-inner">
+    <div class="reveal">
+      <div class="section-label">O problema real</div>
+      <h2 class="section-title">Você paga R$20/mês.<br><span style="color:var(--accent2)">Usa 5% do potencial.</span></h2>
+      <p style="margin-top:20px">A maioria das pessoas usa o Claude como um Google mais inteligente. Faz pergunta genérica, recebe resposta genérica. Resultado: mediano.</p>
+      <p>Skills são <strong>instruções de fábrica</strong> que você instala no Claude. Ele para de adivinhar o que você quer e começa a executar com o tom, formato e profundidade certos.</p>
+      <p>É a diferença entre pedir algo para um estagiário e para um especialista sênior que já sabe exatamente o que fazer.</p>
+    </div>
+    <div class="reveal d2">
+      <div class="terminal">
+        <div class="t-bar">
+          <span class="t-dot t-r"></span><span class="t-dot t-y"></span><span class="t-dot t-g"></span>
+          <span class="t-name">claude — sem skill</span>
+        </div>
+        <div class="t-body">
+          <div><span class="t-p">você → </span><span class="t-c">escreve um post para instagram</span></div>
+          <div><span class="t-o">Claude: Claro! Aqui está um post...</span></div>
+          <div><span class="t-o">"✨ Nunca pare de aprender! Cada</span></div>
+          <div><span class="t-o">dia é uma nova oportunidade!"</span></div>
+          <div style="margin-top:6px"><span class="t-err">// genérico. descartável. zero resultado.</span></div>
+        </div>
+      </div>
+      <div class="terminal" style="margin-top:12px">
+        <div class="t-bar">
+          <span class="t-dot t-r"></span><span class="t-dot t-y"></span><span class="t-dot t-g"></span>
+          <span class="t-name">claude — skill Social Media PRO instalada</span>
+        </div>
+        <div class="t-body">
+          <div><span class="t-p">você → </span><span class="t-c">escreve um post para instagram</span></div>
+          <div><span class="t-o">Claude: [Skill ativa] Analisando nicho,</span></div>
+          <div><span class="t-o">aplicando hook + storytelling + CTA +</span></div>
+          <div><span class="t-o">hashtags calibrados para seu público.</span></div>
+          <div style="margin-top:6px"><span class="t-ok">// publicável. converte. diferente.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section">
+  <div class="skills-intro reveal">
+    <div class="section-label">O que você recebe</div>
+    <h2 class="section-title">20 SKILLS PRONTAS.<br><span style="color:var(--accent)">INSTALA EM 60 SEGUNDOS.</span></h2>
+    <p>Cada Skill é uma instrução especializada que transforma o Claude em um expert na área — do zero, sem configuração técnica.</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 01</div>
+      <div class="skill-name">Social Media PRO</div>
+      <div class="skill-desc">Gera posts virais com hook, storytelling e CTA para Instagram, TikTok e LinkedIn.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Marketing</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 02</div>
+      <div class="skill-name">Email Vendas</div>
+      <div class="skill-desc">Sequências que convertem — boas-vindas, nurturing, oferta e recuperação.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 03</div>
+      <div class="skill-name">Criador de Curso</div>
+      <div class="skill-desc">Estrutura módulos, aulas, exercícios e materiais para infoprodutos completos.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 04</div>
+      <div class="skill-name">Análise Financeira</div>
+      <div class="skill-desc">Interpreta DRE, fluxo de caixa e gera relatórios executivos em minutos.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 05</div>
+      <div class="skill-name">SEO Writer</div>
+      <div class="skill-desc">Artigos otimizados para Google com estrutura, keywords e meta tags prontos.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Marketing</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 06</div>
+      <div class="skill-name">Atendimento VIP</div>
+      <div class="skill-desc">Responde clientes com empatia e clareza, resolve objeções sem soar robótico.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 07</div>
+      <div class="skill-name">Roteirista de Vídeo</div>
+      <div class="skill-desc">Roteiros para YouTube, Reels e TikTok com gancho, desenvolvimento e CTA.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Marketing</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 08</div>
+      <div class="skill-name">Gestor de Projetos</div>
+      <div class="skill-desc">Planeja sprints, delega tarefas, gera cronogramas e acompanha entregas.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 09</div>
+      <div class="skill-name">Copywriter de Vendas</div>
+      <div class="skill-desc">Landing pages, VSL e anúncios usando frameworks clássicos de conversão.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Marketing</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 10</div>
+      <div class="skill-name">Estrategista de IA</div>
+      <div class="skill-desc">Mapeia processos e propõe onde implementar IA para economizar tempo e dinheiro.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 11</div>
+      <div class="skill-name">Pitch de Vendas</div>
+      <div class="skill-desc">Elevator pitch, reunião consultiva e follow-up com scripts prontos.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 12</div>
+      <div class="skill-name">Pesquisa de Mercado</div>
+      <div class="skill-desc">Análise competitiva, persona detalhada e identificação de oportunidades.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 13</div>
+      <div class="skill-name">Mentor de Carreira</div>
+      <div class="skill-desc">Plano de 90 dias, currículo, LinkedIn e negociação salarial.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 14</div>
+      <div class="skill-name">Tradutor Especializado</div>
+      <div class="skill-desc">PT-BR ↔ EN-US com adaptação cultural e glossário técnico.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 15</div>
+      <div class="skill-name">Coach Fitness</div>
+      <div class="skill-desc">Treino, alimentação e calculadora de macros para rotinas ocupadas.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 16</div>
+      <div class="skill-name">Tráfego Pago</div>
+      <div class="skill-desc">Facebook Ads e Google Ads — estratégia, criativos e análise de métricas.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Marketing</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 17</div>
+      <div class="skill-name">Jurídico Básico</div>
+      <div class="skill-desc">Contratos, termos de uso, política de privacidade e conformidade LGPD.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-num">SKILL 18</div>
+      <div class="skill-name">Precificação</div>
+      <div class="skill-desc">Estratégias de preço, ancoragem, bundles e como aumentar ticket médio.</div>
+      <div class="skill-footer"><span class="skill-tag tag-neg">Negócios</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-num">SKILL 19</div>
+      <div class="skill-name">Gerador de Ideias</div>
+      <div class="skill-desc">Brainstorming estruturado com SCAMPER, Blue Ocean e validação rápida.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-num">SKILL 20</div>
+      <div class="skill-name">Assistente Executivo</div>
+      <div class="skill-desc">Gestão de tempo, reuniões, emails e tomada de decisão — seu COO pessoal.</div>
+      <div class="skill-footer"><span class="skill-tag tag-prod">Produtividade</span><a href="https://pay.cakto.com.br/m2uy3q7_913313" class="skill-arrow" style="text-decoration:none">→</a></div>
+    </div>
+    <div class="skill-card highlight reveal d2">
+      <div class="skill-num" style="color:var(--accent)">BÔNUS</div>
+      <div class="skill-name" style="color:var(--accent)">Skills Novas Todo Mês</div>
+      <div class="skill-desc">Comprando hoje você recebe todas as Skills lançadas nos próximos 12 meses. Meta: 50 Skills no pack.</div>
+      <div class="skill-footer"><span class="skill-tag tag-mkt">Vitalício</span><span class="skill-arrow" style="opacity:1">→</span></div>
+    </div>
+  </div>
+
+  <!-- ORDER BUMP -->
+  <div class="order-bump reveal" id="bump">
+    <div class="bump-label">Oferta especial — adicione ao pedido</div>
+    <div class="bump-row">
+      <div class="bump-checkbox" id="bumpCheck" onclick="toggleBump()"></div>
+      <div>
+        <div class="bump-title">Curso: Crie e Venda Suas Próprias Skills</div>
+        <div class="bump-desc">
+          Aprenda a criar Skills do zero, montar seu marketplace, configurar checkout na Cakto
+          e rodar tráfego para escalar. O mesmo método que gerou
+          <strong style="color:#a78bfa">R$60k em 30 dias</strong> para quem já aplicou.
+        </div>
+        <div class="bump-price">
+          <span class="bump-old">R$197</span>
+          <span class="bump-new">+ R$97</span>
+          <span style="font-size:13px;color:var(--muted);margin-left:4px">adicionando agora</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="section-label reveal" style="margin-bottom:20px">Resumo do pedido</div>
+
+  <div class="total-box reveal d1">
+    <span class="total-label">Total hoje</span>
+    <span class="total-value" id="totalValue">R$47</span>
+    <span class="total-desc" id="totalDesc">Pack 20 Skills — acesso vitalício</span>
+  </div>
+
+  <div class="cta-actions reveal d2">
+    <a href="https://pay.cakto.com.br/m2uy3q7_913313" class="btn-primary" style="font-size:17px;padding:16px 40px">
+      Garantir meu acesso agora
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <p class="hero-hint" style="margin-top:14px">// PIX e Cartão · Processado pela Cakto · Acesso em minutos</p>
+  </div>
+
+  <div class="garantia reveal d3">
+    <div class="garantia-icon">🛡️</div>
+    <div class="garantia-title">Garantia de 7 Dias</div>
+    <div class="garantia-text">Se em 7 dias você não achar que valeu cada centavo, devolvemos 100% do valor. Sem perguntas, sem burocracia. Risco zero.</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-label reveal" style="text-align:center">Dúvidas frequentes</div>
+  <h2 class="section-title reveal" style="text-align:center;margin-bottom:48px">FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Preciso ter o Claude pago para usar? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Não obrigatoriamente, mas o Claude Pro (R$20/mês) multiplica o resultado. As Skills funcionam na versão gratuita também — você instala uma vez e usa para sempre.</div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Como instalo uma Skill no Claude? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Você recebe um guia completo. O processo leva menos de 60 segundos: copia o texto da Skill, cola nas configurações do Claude (Project Instructions) e pronto. Funciona em qualquer dispositivo.</div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">As Skills funcionam para qualquer nicho? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Sim. Cada Skill é construída para se adaptar ao seu contexto. O curso (order bump) ensina a personalizar e criar Skills específicas para o seu nicho em menos de 30 minutos.</div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">Recebo atualizações futuras? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Sim. Comprando hoje você recebe todas as Skills que lançarmos nos próximos 12 meses sem custo adicional. O objetivo é chegar a 50 Skills no pack.</div>
+    </div>
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q">E se eu não gostar? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Garantia incondicional de 7 dias. Não gostou por qualquer motivo — manda um email para contato@veloxhub.com.br e devolvemos 100%. Sem burocracia.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="https://veloxhub.com.br" class="nav-logo" style="font-size:22px">VELOX<span>HUB</span></a>
+  <span>© 2026 VeloxHub. Todos os direitos reservados.</span>
+  <div class="footer-links">
+    <a href="https://veloxhub.com.br/privacidade/">Privacidade</a>
+    <a href="https://veloxhub.com.br/termos/">Termos</a>
+    <a href="mailto:contato@veloxhub.com.br">Contato</a>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// FAQ
+function toggleFaq(el){ el.classList.toggle('open'); }
+
+// Order bump
+const LINK_BASE = 'https://pay.cakto.com.br/m2uy3q7_913313';
+const LINK_BUMP = 'https://pay.cakto.com.br/m2uy3q7_913355';
+
+let bumpOn = false;
+function toggleBump(){
+  bumpOn = !bumpOn;
+  document.getElementById('bumpCheck').classList.toggle('on', bumpOn);
+  document.getElementById('bump').classList.toggle('active', bumpOn);
+  document.getElementById('totalValue').textContent = bumpOn ? 'R$144' : 'R$47';
+  document.getElementById('totalDesc').textContent = bumpOn
+    ? 'Pack 20 Skills + Curso Completo'
+    : 'Pack 20 Skills — acesso vitalício';
+  // Atualiza TODOS os botões de checkout
+  document.querySelectorAll('a[href*="pay.cakto.com.br"]').forEach(function(btn){
+    btn.href = bumpOn ? LINK_BUMP : LINK_BASE;
+  });
+}
+
+// Float cards stagger
+document.querySelectorAll('.float-card').forEach((c,i) => {
+  c.style.animation = `fadeUp 0.5s ${0.4 + i * 0.15}s ease both`;
+});
+</script>
+</body>
+</html>

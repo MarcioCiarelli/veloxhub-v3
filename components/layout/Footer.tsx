@@ -5,9 +5,11 @@ const COLUMNS = [
   {
     title: 'Empresa',
     links: [
+      { label: 'Sobre o VeloxHub', href: '/sobre' },
       { label: 'Artigos', href: '/blog' },
+      { label: 'Contato', href: '/contato' },
+      { label: 'Newsletter', href: '/newsletter' },
       { label: 'Área de Membros', href: '/membros' },
-      { label: 'Planos', href: '/planos' },
     ],
   },
   {

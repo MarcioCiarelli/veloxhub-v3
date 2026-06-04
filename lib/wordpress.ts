@@ -1,6 +1,6 @@
 import type { WPPost, WPCategory } from '@/types'
 
-const WP_API = 'https://veloxhub.com.br/wp-json/wp/v2'
+const WP_API = 'https://wp.veloxhub.com.br/wp-json/wp/v2'
 
 async function fetchWP<T>(endpoint: string, params: Record<string, string | number> = {}): Promise<T> {
   const url = new URL(`${WP_API}${endpoint}`)

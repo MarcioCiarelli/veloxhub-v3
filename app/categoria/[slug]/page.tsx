@@ -29,13 +29,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+export const dynamicParams = true
+
 export async function generateStaticParams() {
-  try {
-    const cats = await getCategories()
-    return cats.map(c => ({ slug: c.slug }))
-  } catch {
-    return []
-  }
+  return []
 }
 
 export default async function CategoryPage({ params }: Props) {

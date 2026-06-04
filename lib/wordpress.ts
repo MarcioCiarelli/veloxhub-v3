@@ -5,10 +5,13 @@ const WP_API = 'https://wp.veloxhub.com.br/wp-json/wp/v2'
 async function fetchWP<T>(endpoint: string, params: Record<string, string | number> = {}): Promise<T> {
   const url = new URL(`${WP_API}${endpoint}`)
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, String(v)))
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), 8000)
   const res = await fetch(url.toString(), {
     next: { revalidate: 300 },
     headers: { 'Accept': 'application/json' },
-  })
+    signal: controller.signal,
+  }).finally(() => clearTimeout(timeout))
   if (!res.ok) throw new Error(`WP API error: ${res.status} ${endpoint}`)
   return res.json()
 }

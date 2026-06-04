@@ -26,13 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+export const dynamicParams = true
+
 export async function generateStaticParams() {
-  try {
-    const posts = await getPosts({ per_page: 50 })
-    return posts.map(p => ({ slug: p.slug }))
-  } catch {
-    return []
-  }
+  return []
 }
 
 export default async function ArticlePage({ params }: Props) {

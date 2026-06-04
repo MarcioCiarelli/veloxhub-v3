@@ -14,7 +14,7 @@ const TOOLS_FREE = [
     desc: '20 automações prontas para publicar em 5 redes sociais sem esforço.',
     badge: 'R$47',
     badgeColor: 'text-accent bg-accent/10',
-    href: '/skills.html',
+    href: '/skills',
     cta: 'Ver Skills',
     free: true,
   },

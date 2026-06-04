@@ -22,7 +22,7 @@ const NAV_ITEMS = [
   },
   { label: 'Ferramentas', href: '/ferramentas' },
   { label: 'Planos', href: '/planos' },
-  { label: 'Skills IA', href: '/skills.html' },
+  { label: 'Skills IA', href: '/skills' },
 ]
 
 export default function Header() {

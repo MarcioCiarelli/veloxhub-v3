@@ -19,7 +19,7 @@ const COLUMNS = [
       { label: 'Calculadora de Macros', href: '/ferramentas/calculadora-macros' },
       { label: 'Dashboard do Motorista', href: '/ferramentas/dashboard-motorista' },
       { label: 'Calc. Investimentos', href: '/ferramentas/calculadora-investimentos' },
-      { label: 'Skills para Claude', href: '/skills.html' },
+      { label: 'Skills para Claude', href: '/skills' },
       { label: 'Ver Planos', href: '/planos' },
     ],
   },

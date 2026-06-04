@@ -99,7 +99,7 @@ export default async function ArticlePage({ params }: Props) {
         <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-2">Skills para Claude</p>
         <h3 className="text-xl font-black mb-2">Automatize seu conteúdo com IA</h3>
         <p className="text-text-secondary text-sm mb-4">20 skills prontas para publicar em 5 redes sociais automaticamente.</p>
-        <Link href="/skills.html"
+        <Link href="/skills"
           className="inline-flex items-center gap-2 bg-accent text-black font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-accent-hover transition-colors">
           Ver Skills — R$47
         </Link>

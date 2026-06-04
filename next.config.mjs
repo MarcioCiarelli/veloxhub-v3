@@ -18,9 +18,7 @@ const nextConfig = {
     ]
   },
   async redirects() {
-    return [
-      { source: '/skills', destination: '/skills.html', permanent: false },
-    ]
+    return []
   },
 }
 

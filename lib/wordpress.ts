@@ -26,7 +26,7 @@ export async function getPost(slug: string): Promise<WPPost | null> {
 }
 
 export async function getCategories(): Promise<WPCategory[]> {
-  return fetchWP<WPCategory[]>('/categories', { per_page: 20, hide_empty: 1 })
+  return fetchWP<WPCategory[]>('/categories', { per_page: 100 })
 }
 
 export function getFeaturedImage(post: WPPost): string {

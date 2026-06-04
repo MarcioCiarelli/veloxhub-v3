@@ -92,10 +92,10 @@ export default function Header() {
 
             {/* Right actions */}
             <div className="hidden lg:flex items-center gap-2">
-              <Button variant="ghost" size="sm" href="https://veloxhub.com.br/minha-conta">
+              <Button variant="ghost" size="sm" href="https://wp.veloxhub.com.br/minha-conta/">
                 Entrar
               </Button>
-              <Button variant="primary" size="sm" href="https://veloxhub.com.br/planos">
+              <Button variant="primary" size="sm" href="/planos">
                 Assinar Agora
               </Button>
             </div>
@@ -135,10 +135,10 @@ export default function Header() {
                 </div>
               ))}
               <div className="flex gap-2 pt-3 border-t border-border mt-2">
-                <Button variant="outline" size="sm" href="https://veloxhub.com.br/minha-conta" className="flex-1">
+                <Button variant="outline" size="sm" href="https://wp.veloxhub.com.br/minha-conta/" className="flex-1">
                   Entrar
                 </Button>
-                <Button variant="primary" size="sm" href="https://veloxhub.com.br/planos" className="flex-1">
+                <Button variant="primary" size="sm" href="/planos" className="flex-1">
                   Assinar
                 </Button>
               </div>

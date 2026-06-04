@@ -9,45 +9,46 @@ const COLUMNS = [
       { label: 'Blog', href: '/blog' },
       { label: 'Contato', href: '/contato' },
       { label: 'Newsletter', href: '/newsletter' },
-      { label: 'Área de Membros', href: 'https://wp.veloxhub.com.br/membros/' },
+      { label: 'Área de Membros', href: '/membros' },
     ],
   },
   {
     title: 'Ferramentas',
     links: [
       { label: 'Hub de Ferramentas', href: '/ferramentas' },
-      { label: 'Gerador SEO', href: '/ferramentas/gerador-seo' },
-      { label: 'Gerador de Posts', href: '/ferramentas/gerador-posts' },
+      { label: 'Calculadora de Macros', href: '/ferramentas/calculadora-macros' },
+      { label: 'Dashboard do Motorista', href: '/ferramentas/dashboard-motorista' },
+      { label: 'Calc. Investimentos', href: '/ferramentas/calculadora-investimentos' },
       { label: 'Skills para Claude', href: '/skills.html' },
       { label: 'Ver Planos', href: '/planos' },
     ],
   },
   {
-    title: 'Marketplace',
+    title: 'Categorias',
     links: [
-      { label: 'Todos os Produtos', href: '/marketplace' },
-      { label: 'Prompts', href: '/marketplace/prompts' },
-      { label: 'Templates', href: '/marketplace/templates' },
-      { label: 'Fluxos N8N', href: '/marketplace/n8n' },
-      { label: 'Agentes IA', href: '/marketplace/agentes' },
+      { label: '⚡ Tecnologia & IA', href: '/categoria/inteligencia-artificial' },
+      { label: '📈 Finanças', href: '/categoria/financas' },
+      { label: '🚀 Produtividade', href: '/categoria/produtividade' },
+      { label: '📣 Marketing', href: '/categoria/marketing' },
+      { label: '💼 Negócios', href: '/categoria/negocios' },
     ],
   },
   {
-    title: 'Cursos',
+    title: 'Planos',
     links: [
-      { label: 'Todos os Cursos', href: '/cursos' },
-      { label: 'IA para Negócios', href: '/cursos/ia-negocios' },
-      { label: 'Automação com N8N', href: '/cursos/n8n' },
-      { label: 'SEO com IA', href: '/cursos/seo-ia' },
-      { label: 'Monetização Digital', href: '/cursos/monetizacao' },
+      { label: 'Ver todos os Planos', href: '/planos' },
+      { label: 'Plano Free', href: '/planos' },
+      { label: 'Plano Starter — R$19/mês', href: '/planos' },
+      { label: 'Plano Pro — R$49/mês', href: '/planos' },
+      { label: 'Minha Conta', href: '/minha-conta' },
     ],
   },
   {
     title: 'Legal',
     links: [
-      { label: 'Privacidade', href: 'https://wp.veloxhub.com.br/politica-de-privacidade/' },
-      { label: 'Termos de Uso', href: 'https://wp.veloxhub.com.br/termos/' },
-      { label: 'Cookies', href: '#' },
+      { label: 'Privacidade', href: '/privacidade' },
+      { label: 'Termos de Uso', href: '/termos' },
+      { label: 'Política de Cookies', href: '/cookies' },
     ],
   },
 ]
@@ -112,7 +113,7 @@ export default function Footer() {
               <h4 className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-4">{col.title}</h4>
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link href={link.href}
                       className="text-sm text-text-secondary hover:text-text-primary transition-colors">
                       {link.label}
@@ -127,7 +128,11 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-secondary/60">
           <span>© {new Date().getFullYear()} VeloxHub. Todos os direitos reservados.</span>
-          <span>Feito com ⚡ e muita IA</span>
+          <div className="flex gap-4">
+            <Link href="/privacidade" className="hover:text-text-secondary transition-colors">Privacidade</Link>
+            <Link href="/termos" className="hover:text-text-secondary transition-colors">Termos</Link>
+            <Link href="/cookies" className="hover:text-text-secondary transition-colors">Cookies</Link>
+          </div>
         </div>
       </div>
     </footer>

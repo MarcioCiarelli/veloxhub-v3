@@ -12,18 +12,17 @@ const NAV_ITEMS = [
     label: 'Categorias',
     href: '#',
     dropdown: [
-      { label: '⚡ IA & Automação', href: '/categoria/ia' },
-      { label: '📈 Marketing', href: '/categoria/marketing' },
-      { label: '🔍 SEO', href: '/categoria/seo' },
+      { label: '🤖 Inteligência Artificial', href: '/categoria/inteligencia-artificial' },
+      { label: '⚡ Tecnologia', href: '/categoria/tecnologia' },
+      { label: '💰 Finanças', href: '/categoria/financas' },
       { label: '🚀 Produtividade', href: '/categoria/produtividade' },
-      { label: '💰 Monetização', href: '/categoria/monetizacao' },
+      { label: '📣 Marketing', href: '/categoria/marketing' },
       { label: '💼 Negócios', href: '/categoria/negocios' },
     ],
   },
   { label: 'Ferramentas', href: '/ferramentas' },
-  { label: 'Marketplace', href: '/marketplace' },
-  { label: 'Cursos', href: '/cursos' },
-  { label: 'Comunidade', href: '/comunidade' },
+  { label: 'Planos', href: '/planos' },
+  { label: 'Skills IA', href: '/skills.html' },
 ]
 
 export default function Header() {

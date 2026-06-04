@@ -95,7 +95,7 @@ export default function SkillsPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center px-6 md:px-12 pt-24 pb-16 overflow-hidden">
+      <section className="relative min-h-[82vh] flex items-center px-6 md:px-12 pt-20 pb-10 overflow-hidden">
         {/* grid bg */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -133,7 +133,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-text-secondary text-lg max-w-lg leading-relaxed font-light mb-8">
+            className="text-text-secondary text-lg max-w-lg leading-relaxed font-light mb-5">
             Com as <strong className="text-text-primary font-semibold">Skills certas instaladas</strong>, ele para
             de responder de forma genérica e começa a executar como um especialista sênior — no seu tom, no seu
             formato, com a sua profundidade.
@@ -143,7 +143,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="flex items-baseline gap-4 mb-7">
+            className="flex items-baseline gap-4 mb-5">
             <span className="text-text-secondary text-lg line-through">R$197</span>
             <span className={`${bebas.className} text-6xl text-accent leading-none tracking-wide`}>R$47</span>
             <span className="text-text-secondary text-sm leading-snug">pagamento único<br />acesso vitalício</span>
@@ -170,7 +170,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="flex gap-9 mt-12 pt-9 border-t border-white/5">
+            className="flex gap-9 mt-7 pt-6 border-t border-white/5">
             {STATS.map(({ num, label }) => (
               <div key={label}>
                 <div className={`${bebas.className} text-3xl text-accent tracking-wider`}>{num}</div>
@@ -215,7 +215,7 @@ export default function SkillsPage() {
       </div>
 
       {/* ── PROBLEMA ── */}
-      <section className="py-20 px-6 md:px-12 bg-card border-y border-white/5">
+      <section className="py-14 px-6 md:px-12 bg-card border-y border-white/5">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -284,12 +284,12 @@ export default function SkillsPage() {
       </section>
 
       {/* ── SKILLS GRID ── */}
-      <section className="py-20 px-6 md:px-12 bg-bg">
+      <section className="py-14 px-6 md:px-12 bg-bg">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-xl mx-auto mb-12">
+          className="text-center max-w-xl mx-auto mb-8">
           <SectionLabel>O que você recebe</SectionLabel>
           <h2 className={`${bebas.className} text-[clamp(36px,5vw,54px)] tracking-wider leading-none mb-4`}>
             20 SKILLS PRONTAS.<br />
@@ -350,7 +350,7 @@ export default function SkillsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           onClick={() => setBumpOn(!bumpOn)}
-          className={`max-w-3xl mx-auto mt-14 relative border rounded-xl p-8 cursor-pointer transition-all
+          className={`max-w-3xl mx-auto mt-8 relative border rounded-xl p-8 cursor-pointer transition-all
             ${bumpOn ? 'border-accent/70 bg-accent/[0.08]' : 'border-dashed border-accent/40 bg-accent/[0.04] hover:border-accent/60'}`}>
           <div className="absolute -top-3 left-6">
             <span className="bg-purple-500 text-white text-[11px] font-bold tracking-widest uppercase px-3.5 py-1 rounded">
@@ -380,7 +380,7 @@ export default function SkillsPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-20 px-6 md:px-12 text-center relative overflow-hidden">
+      <section className="py-14 px-6 md:px-12 text-center relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,212,0,0.06) 0%,transparent 70%)' }}
@@ -427,7 +427,7 @@ export default function SkillsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="max-w-lg mx-auto mt-12 border border-emerald-500/15 rounded-xl p-8 text-center">
+            className="max-w-lg mx-auto mt-8 border border-emerald-500/15 rounded-xl p-8 text-center">
             <div className="text-4xl mb-3">🛡️</div>
             <div className="font-black text-lg text-emerald-400 tracking-tight mb-3">Garantia de 7 Dias</div>
             <div className="text-text-secondary text-sm leading-relaxed">
@@ -439,8 +439,8 @@ export default function SkillsPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20 px-6 md:px-12 bg-card border-t border-white/5">
-        <div className="text-center mb-12">
+      <section className="py-14 px-6 md:px-12 bg-card border-t border-white/5">
+        <div className="text-center mb-8">
           <SectionLabel>Dúvidas frequentes</SectionLabel>
           <h2 className={`${bebas.className} text-4xl tracking-wider`}>FAQ</h2>
         </div>

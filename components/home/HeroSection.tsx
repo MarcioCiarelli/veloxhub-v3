@@ -94,37 +94,49 @@ export default function HeroSection() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden lg:flex items-center justify-center">
-            <div className="relative w-full max-w-md aspect-square">
-              {/* Outer glow ring */}
+            {/* Container com tamanho fixo para posicionamento absoluto confiável */}
+            <div className="relative w-[420px] h-[420px]">
+
+              {/* Anéis concêntricos */}
               <div className="absolute inset-0 rounded-full border border-accent/10 animate-pulse-slow" />
               <div className="absolute inset-8 rounded-full border border-accent/15 animate-pulse-slow" style={{ animationDelay: '0.5s' }} />
+              <div className="absolute inset-16 rounded-full border border-accent/8" />
 
-              {/* Central element */}
-              <div className="absolute inset-16 rounded-full bg-gradient-radial from-accent/20 to-transparent flex items-center justify-center">
-                <div className="relative">
-                  {/* Bolt icon large */}
-                  <div className="w-32 h-32 bg-gradient-to-br from-accent to-yellow-600 rounded-3xl flex items-center justify-center shadow-accent-lg rotate-6">
-                    <svg width="64" height="64" viewBox="0 0 24 24" fill="black">
-                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                    </svg>
-                  </div>
-                  {/* Orbiting dots */}
-                  {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-                    <div key={i} className="absolute w-2 h-2 rounded-full bg-accent/60"
-                      style={{
-                        top: '50%', left: '50%',
-                        transform: `rotate(${deg}deg) translateX(80px) translate(-50%, -50%)`,
-                      }} />
-                  ))}
-                </div>
+              {/* Glow central */}
+              <div className="absolute inset-16 rounded-full bg-gradient-radial from-accent/15 to-transparent" />
+
+              {/* Bolt centralizado */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                              w-32 h-32 bg-gradient-to-br from-accent to-yellow-600
+                              rounded-3xl flex items-center justify-center shadow-accent-lg rotate-6 z-10">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="black">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
               </div>
+
+              {/* Dots orbitando — posicionados via cálculo polar→cartesiano */}
+              {[0, 60, 120, 180, 240, 300].map((deg, i) => {
+                const rad = (deg * Math.PI) / 180
+                const r = 148
+                const cx = 210, cy = 210
+                return (
+                  <div key={i}
+                    className="absolute w-2.5 h-2.5 rounded-full bg-accent shadow-accent"
+                    style={{
+                      left: cx + r * Math.cos(rad) - 5,
+                      top:  cy + r * Math.sin(rad) - 5,
+                      opacity: 0.55 + (i % 3) * 0.15,
+                    }}
+                  />
+                )
+              })}
 
               {/* Floating cards */}
               <motion.div
                 animate={{ y: [-8, 8, -8] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-4 right-0 bg-card border border-border rounded-xl p-3 text-xs shadow-lg">
-                <div className="flex items-center gap-2 text-accent font-bold">
+                className="absolute top-6 -right-2 bg-card border border-border rounded-xl p-3 text-xs shadow-lg z-20">
+                <div className="flex items-center gap-2 text-accent font-bold whitespace-nowrap">
                   <span>⚡</span> 500+ Artigos
                 </div>
               </motion.div>
@@ -132,8 +144,8 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [8, -8, 8] }}
                 transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                className="absolute bottom-8 left-0 bg-card border border-border rounded-xl p-3 text-xs shadow-lg">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold">
+                className="absolute bottom-10 -left-2 bg-card border border-border rounded-xl p-3 text-xs shadow-lg z-20">
+                <div className="flex items-center gap-2 text-emerald-400 font-bold whitespace-nowrap">
                   <span>🤖</span> IA & Automação
                 </div>
               </motion.div>
@@ -141,12 +153,13 @@ export default function HeroSection() {
               <motion.div
                 animate={{ y: [-6, 6, -6] }}
                 transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute top-1/2 -right-4 bg-card border border-border rounded-xl p-3 text-xs shadow-lg">
-                <div className="text-text-secondary">
-                  <span className="text-white font-bold">10.000+</span>
-                  <br />leitores
+                className="absolute top-1/2 -translate-y-1/2 -right-6 bg-card border border-border rounded-xl p-3 text-xs shadow-lg z-20">
+                <div className="text-text-secondary text-center">
+                  <span className="text-white font-bold block">10.000+</span>
+                  leitores
                 </div>
               </motion.div>
+
             </div>
           </motion.div>
 

@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, Zap } from 'lucide-react'
+import { Menu, X, ChevronDown, Zap, ShoppingCart } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
@@ -91,6 +91,11 @@ export default function Header() {
 
             {/* Right actions */}
             <div className="hidden lg:flex items-center gap-2">
+              <Link href="https://wp.veloxhub.com.br/finalizar-compra/"
+                className="relative p-2 text-text-secondary hover:text-accent transition-colors rounded-lg hover:bg-white/5"
+                title="Carrinho">
+                <ShoppingCart size={18} />
+              </Link>
               <Button variant="ghost" size="sm" href="https://wp.veloxhub.com.br/minha-conta/">
                 Entrar
               </Button>
@@ -134,6 +139,10 @@ export default function Header() {
                 </div>
               ))}
               <div className="flex gap-2 pt-3 border-t border-border mt-2">
+                <Link href="https://wp.veloxhub.com.br/finalizar-compra/"
+                  className="flex items-center justify-center gap-2 px-3 py-2 text-sm text-text-secondary hover:text-accent border border-border rounded-lg hover:bg-white/5 transition-colors">
+                  <ShoppingCart size={16} /> Carrinho
+                </Link>
                 <Button variant="outline" size="sm" href="https://wp.veloxhub.com.br/minha-conta/" className="flex-1">
                   Entrar
                 </Button>

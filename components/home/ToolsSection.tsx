@@ -6,14 +6,14 @@ import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
 
 const TOOLS = [
-  { id: 'seo-gen', name: 'Gerador SEO', desc: 'Títulos, meta descriptions e estrutura de artigos otimizados para Google.', icon: '🔍', badge: 'Popular', href: '/ferramentas/gerador-seo' },
-  { id: 'post-gen', name: 'Gerador de Posts', desc: 'Crie posts completos para blog em segundos com IA generativa.', icon: '✍️', badge: 'Novo', href: '/ferramentas/gerador-posts' },
-  { id: 'img-gen', name: 'Gerador de Imagens', desc: 'Thumbnails e banners otimizados para redes sociais e blog.', icon: '🖼️', href: '/ferramentas/gerador-imagens' },
-  { id: 'content-plan', name: 'Planejador de Conteúdo', desc: 'Calendário editorial com sugestões de pauta baseadas em tendências.', icon: '📅', href: '/ferramentas/planejador' },
-  { id: 'video-gen', name: 'Gerador de Vídeos', desc: 'Shorts e Reels automáticos a partir dos seus artigos.', icon: '🎬', badge: 'Beta', href: '/ferramentas/gerador-videos' },
-  { id: 'title-gen', name: 'Gerador de Títulos', desc: '10 variações de títulos com gatilhos mentais para máximo CTR.', icon: '💡', href: '/ferramentas/gerador-titulos' },
-  { id: 'seo-analyzer', name: 'Analisador SEO', desc: 'Auditoria técnica e sugestões de melhoria para qualquer URL.', icon: '📊', href: '/ferramentas/analisador-seo' },
-  { id: 'skills', name: 'Skills para Claude', desc: '20 automações prontas para o Claude — publique em 5 redes sem esforço.', icon: '⚡', badge: 'R$47', href: '/skills' },
+  { id: 'skills', name: 'Skills para Claude', desc: '20 automações prontas para o Claude — publique em 5 redes sem esforço.', icon: '⚡', badge: 'R$47', href: '/skills', locked: false },
+  { id: 'seo-gen', name: 'Gerador SEO', desc: 'Títulos, meta descriptions e estrutura de artigos otimizados para Google.', icon: '🔍', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'post-gen', name: 'Gerador de Posts', desc: 'Crie posts completos para blog em segundos com IA generativa.', icon: '✍️', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'img-gen', name: 'Gerador de Imagens', desc: 'Thumbnails e banners otimizados para redes sociais e blog.', icon: '🖼️', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'content-plan', name: 'Planejador de Conteúdo', desc: 'Calendário editorial com sugestões de pauta baseadas em tendências.', icon: '📅', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'video-gen', name: 'Gerador de Vídeos', desc: 'Shorts e Reels automáticos a partir dos seus artigos.', icon: '🎬', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'title-gen', name: 'Gerador de Títulos', desc: '10 variações de títulos com gatilhos mentais para máximo CTR.', icon: '💡', badge: 'Em breve', href: '/ferramentas', locked: true },
+  { id: 'seo-analyzer', name: 'Analisador SEO', desc: 'Auditoria técnica e sugestões de melhoria para qualquer URL.', icon: '📊', badge: 'Em breve', href: '/ferramentas', locked: true },
 ]
 
 export default function ToolsSection() {
@@ -44,22 +44,37 @@ export default function ToolsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.4 }}>
-              <Link href={tool.href}
-                className="group block bg-card border border-border rounded-2xl p-5 card-hover h-full">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="text-3xl">{tool.icon}</div>
-                  {tool.badge && (
-                    <Badge variant={tool.badge === 'Popular' ? 'accent' : tool.badge === 'Novo' ? 'green' : 'default'}>
-                      {tool.badge}
-                    </Badge>
-                  )}
+              {tool.locked ? (
+                <div className="block bg-card border border-border rounded-2xl p-5 h-full opacity-40 cursor-not-allowed relative">
+                  <div className="absolute top-3 right-3 text-lg">🔒</div>
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-3xl">{tool.icon}</div>
+                    {tool.badge && <Badge variant="default">{tool.badge}</Badge>}
+                  </div>
+                  <h3 className="font-bold mb-2">{tool.name}</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed mb-4">{tool.desc}</p>
+                  <div className="flex items-center gap-1 text-xs font-semibold text-text-secondary">
+                    Em desenvolvimento
+                  </div>
                 </div>
-                <h3 className="font-bold mb-2 group-hover:text-accent transition-colors">{tool.name}</h3>
-                <p className="text-xs text-text-secondary leading-relaxed mb-4">{tool.desc}</p>
-                <div className="flex items-center gap-1 text-xs font-semibold text-accent">
-                  Acessar <ExternalLink size={11} />
-                </div>
-              </Link>
+              ) : (
+                <Link href={tool.href}
+                  className="group block bg-card border border-border rounded-2xl p-5 card-hover h-full">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="text-3xl">{tool.icon}</div>
+                    {tool.badge && (
+                      <Badge variant={tool.badge === 'R$47' ? 'accent' : 'green'}>
+                        {tool.badge}
+                      </Badge>
+                    )}
+                  </div>
+                  <h3 className="font-bold mb-2 group-hover:text-accent transition-colors">{tool.name}</h3>
+                  <p className="text-xs text-text-secondary leading-relaxed mb-4">{tool.desc}</p>
+                  <div className="flex items-center gap-1 text-xs font-semibold text-accent">
+                    Acessar <ExternalLink size={11} />
+                  </div>
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>

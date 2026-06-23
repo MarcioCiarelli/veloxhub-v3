@@ -96,6 +96,32 @@ export default function SkillsPage() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-[82vh] flex items-center px-6 md:px-12 pt-20 pb-10 overflow-hidden">
+        {/* Matrix rain effect */}
+        <canvas id="matrix-rain" className="absolute inset-0 pointer-events-none opacity-[0.12]" />
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            var c=document.getElementById('matrix-rain');if(!c)return;
+            var ctx=c.getContext('2d');
+            function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
+            resize();window.addEventListener('resize',resize);
+            var chars='01アイウエオカキクケコサシスセソVELOXHUBskills{}()=>/**/'.split('');
+            var cols=Math.floor(c.width/14);
+            var drops=Array(cols).fill(1);
+            function draw(){
+              ctx.fillStyle='rgba(5,5,5,0.05)';
+              ctx.fillRect(0,0,c.width,c.height);
+              ctx.fillStyle='#FFD400';
+              ctx.font='12px monospace';
+              for(var i=0;i<drops.length;i++){
+                var t=chars[Math.floor(Math.random()*chars.length)];
+                ctx.fillText(t,i*14,drops[i]*14);
+                if(drops[i]*14>c.height&&Math.random()>0.975)drops[i]=0;
+                drops[i]++;
+              }
+            }
+            setInterval(draw,45);
+          })();
+        `}} />
         {/* grid bg */}
         <div
           className="absolute inset-0 pointer-events-none"

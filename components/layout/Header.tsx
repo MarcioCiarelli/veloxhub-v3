@@ -12,9 +12,9 @@ const NAV_ITEMS = [
     label: 'Categorias',
     href: '#',
     dropdown: [
-      { label: '🤖 Inteligência Artificial', href: '/categoria/inteligencia-artificial' },
-      { label: '⚡ Tecnologia', href: '/categoria/tecnologia' },
+      { label: '⚡ Tecnologia & IA', href: '/categoria/inteligencia-artificial' },
       { label: '💰 Finanças', href: '/categoria/financas' },
+      { label: '💪 Saúde & Performance', href: '/categoria/saude' },
       { label: '🚀 Produtividade', href: '/categoria/produtividade' },
       { label: '📣 Marketing', href: '/categoria/marketing' },
       { label: '💼 Negócios', href: '/categoria/negocios' },
@@ -76,13 +76,15 @@ export default function Header() {
                   )}
 
                   {item.dropdown && activeDropdown === item.label && (
-                    <div className="absolute top-full left-0 mt-1 w-52 bg-card border border-border rounded-xl shadow-xl shadow-black/40 p-1.5 animate-fade-in">
+                    <div className="absolute top-full left-0 pt-1 w-52" style={{ marginTop: 0 }}>
+                    <div className="bg-card border border-border rounded-xl shadow-xl shadow-black/40 p-1.5 animate-fade-in">
                       {item.dropdown.map((sub) => (
                         <Link key={sub.href} href={sub.href}
                           className="block px-3 py-2 text-sm text-text-secondary hover:text-text-primary hover:bg-white/5 rounded-lg transition-colors">
                           {sub.label}
                         </Link>
                       ))}
+                    </div>
                     </div>
                   )}
                 </div>

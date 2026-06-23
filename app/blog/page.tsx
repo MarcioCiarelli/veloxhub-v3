@@ -47,11 +47,11 @@ export default async function BlogPage() {
                 <Image src={img} alt={stripHtml(post.title.rendered)} fill className="object-cover transition-transform duration-500 group-hover:scale-105" sizes="(max-width: 640px) 100vw, 33vw" />
               </div>
               <div className="p-5">
-                <Link href={`/categoria/${catSlug}`}
-                  className="text-xs font-bold uppercase tracking-widest mb-2 block hover:opacity-80 transition-opacity"
+                <span
+                  className="text-xs font-bold uppercase tracking-widest mb-2 block"
                   style={{ color }}>
                   {cat}
-                </Link>
+                </span>
                 <h2 className="font-bold mb-2 group-hover:text-accent transition-colors line-clamp-2 leading-snug"
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
                 <p className="text-xs text-text-secondary line-clamp-2 mb-4">{excerpt}...</p>

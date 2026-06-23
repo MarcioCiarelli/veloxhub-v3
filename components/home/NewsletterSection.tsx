@@ -12,8 +12,21 @@ export default function NewsletterSection() {
     e.preventDefault()
     if (!email) return
     setStatus('loading')
-    await new Promise(r => setTimeout(r, 1000))
-    setStatus('success')
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (res.ok || data.ok) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (

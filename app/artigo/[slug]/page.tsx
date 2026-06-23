@@ -79,7 +79,7 @@ export default async function ArticlePage({ params }: Props) {
             publisher: {
               '@type': 'Organization',
               name: 'VeloxHub',
-              logo: { '@type': 'ImageObject', url: 'https://veloxhub.com.br/logo.png' },
+              logo: { '@type': 'ImageObject', url: 'https://veloxhub.com.br/icon.svg' },
             },
             mainEntityOfPage: `https://veloxhub.com.br/artigo/${params.slug}`,
           }),

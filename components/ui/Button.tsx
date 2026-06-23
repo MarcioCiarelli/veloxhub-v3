@@ -1,11 +1,11 @@
 'use client'
 import { cn } from '@/lib/utils'
+import Link from 'next/link'
 import type { ButtonHTMLAttributes } from 'react'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
   size?: 'sm' | 'md' | 'lg'
-  asChild?: boolean
   href?: string
 }
 
@@ -28,11 +28,11 @@ export function Button({ variant = 'primary', size = 'md', className, children, 
   const classes = cn(base, variants[variant], sizes[size], className)
 
   if (href) {
-    return (
-      <a href={href} className={classes}>
-        {children}
-      </a>
-    )
+    const isExternal = href.startsWith('http') || href.startsWith('//')
+    if (isExternal) {
+      return <a href={href} className={classes}>{children}</a>
+    }
+    return <Link href={href} className={classes}>{children}</Link>
   }
 
   return (

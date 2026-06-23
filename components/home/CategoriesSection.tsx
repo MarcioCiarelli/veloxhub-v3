@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 const CATEGORIES = [
-  { emoji: '🤖', label: 'Inteligência Artificial', slug: 'inteligencia-artificial', desc: 'ChatGPT, Gemini, Claude e as melhores ferramentas de IA.', count: 13, color: '#FFD400' },
-  { emoji: '⚡', label: 'Tecnologia', slug: 'tecnologia', desc: 'Reviews, tutoriais e dicas de ferramentas digitais.', count: 8, color: '#60A5FA' },
-  { emoji: '💰', label: 'Finanças', slug: 'financas', desc: 'Investimentos, renda extra e controle financeiro.', count: 9, color: '#34D399' },
-  { emoji: '🚀', label: 'Produtividade', slug: 'produtividade', desc: 'Sistemas, hábitos e ferramentas para render mais.', count: 10, color: '#A78BFA' },
-  { emoji: '📣', label: 'Marketing', slug: 'marketing', desc: 'Estratégias de conteúdo, tráfego pago e crescimento orgânico.', count: 1, color: '#F472B6' },
-  { emoji: '💼', label: 'Negócios', slug: 'negocios', desc: 'Empreendedorismo, gestão e como escalar seu negócio.', count: 0, color: '#FB923C' },
+  { emoji: '⚡', label: 'Tecnologia & IA', slug: 'inteligencia-artificial', desc: 'ChatGPT, Gemini, Claude e as melhores ferramentas de IA e tecnologia.', count: 71, color: '#FFD400' },
+  { emoji: '💰', label: 'Finanças', slug: 'financas', desc: 'Investimentos, renda extra e controle financeiro.', count: 50, color: '#34D399' },
+  { emoji: '💪', label: 'Saúde & Performance', slug: 'saude', desc: 'Saúde, performance física e bem-estar para alta produtividade.', count: 10, color: '#22C55E' },
+  { emoji: '🚀', label: 'Produtividade', slug: 'produtividade', desc: 'Sistemas, hábitos e ferramentas para render mais.', count: 48, color: '#A78BFA' },
+  { emoji: '📣', label: 'Marketing', slug: 'marketing', desc: 'Estratégias de conteúdo, tráfego pago e crescimento orgânico.', count: 7, color: '#F472B6' },
+  { emoji: '💼', label: 'Negócios', slug: 'negocios', desc: 'Empreendedorismo, gestão e como escalar seu negócio.', count: 8, color: '#FB923C' },
 ]
 
 export default function CategoriesSection() {

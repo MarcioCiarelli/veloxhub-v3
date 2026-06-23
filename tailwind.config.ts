@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: '#050505',
-        card: '#0D1117',
-        border: '#1F2937',
-        'text-primary': '#FFFFFF',
-        'text-secondary': '#9CA3AF',
-        accent: '#FFD400',
-        'accent-hover': '#FFEA00',
+        bg: 'rgb(5, 5, 5)',
+        card: 'rgb(13, 17, 23)',
+        border: 'rgb(31, 41, 55)',
+        'text-primary': 'rgb(255, 255, 255)',
+        'text-secondary': 'rgb(156, 163, 175)',
+        accent: 'rgb(255, 212, 0)',
+        'accent-hover': 'rgb(255, 234, 0)',
         'accent-dim': 'rgba(255,212,0,0.1)',
       },
       fontFamily: {

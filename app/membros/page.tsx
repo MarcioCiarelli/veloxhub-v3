@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { Zap, Lock, ArrowRight } from 'lucide-react'
 
 const TOOLS = [
-  { name: 'Calculadora de Macros', desc: 'Descubra proteína, carbo e gordura ideais por dia.', icon: '💪', plan: 'Starter', href: '/ferramentas/calculadora-macros' },
-  { name: 'Dashboard do Motorista', desc: 'Ganhos, gastos e lucro real por corrida em tempo real.', icon: '🚗', plan: 'Starter', href: '/ferramentas/dashboard-motorista' },
-  { name: 'Calculadora de Investimentos', desc: 'Simule juros compostos e visualize seu patrimônio.', icon: '📊', plan: 'Pro', href: '/ferramentas/calculadora-investimentos' },
-  { name: 'Gerador SEO', desc: 'Títulos e meta descriptions otimizados para Google.', icon: '🔍', plan: 'Pro', href: '/ferramentas/gerador-seo' },
-  { name: 'Gerador de Posts', desc: 'Posts completos para blog com IA em segundos.', icon: '✍️', plan: 'Pro', href: '/ferramentas/gerador-posts' },
+  { name: 'Calculadora de Macros', desc: 'Descubra proteína, carbo e gordura ideais por dia.', icon: '💪', plan: 'Starter', href: '/ferramentas' },
+  { name: 'Dashboard do Motorista', desc: 'Ganhos, gastos e lucro real por corrida em tempo real.', icon: '🚗', plan: 'Starter', href: '/ferramentas' },
+  { name: 'Calculadora de Investimentos', desc: 'Simule juros compostos e visualize seu patrimônio.', icon: '📊', plan: 'Pro', href: '/ferramentas' },
+  { name: 'Finanças Pessoais', desc: 'Receitas, despesas, financiamento e orçamento completo.', icon: '💰', plan: 'Pro', href: '/ferramentas' },
+  { name: 'Contabilidade', desc: 'INSS, IRPF, DAS MEI e controle tributário.', icon: '📋', plan: 'Business', href: '/ferramentas' },
 ]
 
 export default function MembrosPage() {

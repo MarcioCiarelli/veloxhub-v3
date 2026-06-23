@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, Zap } from 'lucide-react'
+import { Menu, X, ChevronDown, Zap, ShoppingBag } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
@@ -93,6 +93,9 @@ export default function Header() {
 
             {/* Right actions */}
             <div className="hidden lg:flex items-center gap-2">
+              <Link href="/planos" className="p-2 text-text-secondary hover:text-accent transition-colors rounded-lg hover:bg-white/5" title="Planos">
+                <ShoppingBag size={17} />
+              </Link>
               <Button variant="ghost" size="sm" href="https://wp.veloxhub.com.br/minha-conta/">
                 Entrar
               </Button>

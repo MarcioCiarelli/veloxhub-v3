@@ -1,9 +1,15 @@
 import type { WPPost, WPCategory } from '@/types'
 
-const WP_API = 'https://wp.veloxhub.com.br/wp-json/wp/v2'
+const WP_API_EXTERNAL = 'https://wp.veloxhub.com.br/wp-json/wp/v2'
+const WP_API_PROXY = '/wp-json/wp/v2'
+
+function getApiBase(): string {
+  return typeof window === 'undefined' ? WP_API_EXTERNAL : WP_API_PROXY
+}
 
 async function fetchWP<T>(endpoint: string, params: Record<string, string | number> = {}): Promise<T> {
-  const url = new URL(`${WP_API}${endpoint}`)
+  const base = getApiBase()
+  const url = new URL(`${base}${endpoint}`, base.startsWith('/') ? 'https://veloxhub.com.br' : undefined)
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, String(v)))
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), 8000)

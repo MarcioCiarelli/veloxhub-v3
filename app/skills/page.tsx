@@ -95,7 +95,7 @@ export default function SkillsPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[82vh] flex items-center px-6 md:px-12 pt-20 pb-10 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center px-4 sm:px-6 md:px-12 pt-16 pb-8 overflow-hidden">
         {/* Matrix rain effect */}
         <canvas id="matrix-rain" className="absolute inset-0 pointer-events-none opacity-[0.12]" />
         <script dangerouslySetInnerHTML={{ __html: `
@@ -149,7 +149,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className={`${bebas.className} text-[clamp(56px,8vw,88px)] leading-[.95] tracking-wider mb-6`}>
+            className={`${bebas.className} text-[clamp(40px,7vw,80px)] leading-[.92] tracking-wider mb-5`}>
             O CLAUDE<br />
             <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)', color: 'transparent' }}>SOZINHO</span><br />
             <span className="text-gradient">VALE POUCO.</span>

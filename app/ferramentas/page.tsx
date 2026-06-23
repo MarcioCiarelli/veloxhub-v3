@@ -26,48 +26,48 @@ const TOOLS_PAID = [
     name: 'Calculadora de Macros',
     desc: 'Descubra exatamente quanto de proteína, carbo e gordura você precisa por dia para atingir seu objetivo.',
     plan: 'Starter+',
-    href: '/ferramentas/calculadora-macros',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/calculadora-macros',
+    href: 'https://wp.veloxhub.com.br/minha-conta/ferramentas/',
+    available: true,
   },
   {
     icon: '🚗',
     name: 'Dashboard do Motorista',
     desc: 'Acompanhe ganhos, gastos com combustível e lucro real por corrida em tempo real.',
     plan: 'Starter+',
-    href: '/ferramentas/dashboard-motorista',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/dashboard-motorista',
+    href: 'https://wp.veloxhub.com.br/minha-conta/motorista/',
+    available: true,
   },
   {
     icon: '📊',
     name: 'Calculadora de Investimentos',
     desc: 'Simule juros compostos e visualize seu patrimônio em 5, 10 e 20 anos com diferentes cenários.',
     plan: 'Pro+',
-    href: '/ferramentas/calculadora-investimentos',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/calculadora-investimentos',
+    href: 'https://wp.veloxhub.com.br/minha-conta/investimentos/',
+    available: true,
   },
   {
     icon: '🔍',
     name: 'Gerador SEO',
     desc: 'Títulos, meta descriptions e estrutura de artigos otimizados para o Google.',
     plan: 'Pro+',
-    href: '/ferramentas/gerador-seo',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/gerador-seo',
+    href: '/ferramentas',
+    available: false,
   },
   {
     icon: '✍️',
     name: 'Gerador de Posts',
     desc: 'Crie posts completos para blog em segundos com IA generativa.',
     plan: 'Pro+',
-    href: '/ferramentas/gerador-posts',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/gerador-posts',
+    href: '/ferramentas',
+    available: false,
   },
   {
     icon: '💡',
     name: 'Gerador de Títulos',
     desc: '10 variações de títulos com gatilhos mentais para máximo CTR.',
     plan: 'Pro+',
-    href: '/ferramentas/gerador-titulos',
-    wpHref: 'https://wp.veloxhub.com.br/ferramentas/gerador-titulos',
+    href: '/ferramentas',
+    available: false,
   },
 ]
 
@@ -120,14 +120,14 @@ export default function FerramentasPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {TOOLS_PAID.map(tool => (
-            <a key={tool.name} href={tool.wpHref}
+          {TOOLS_PAID.map(tool => tool.available ? (
+            <a key={tool.name} href={tool.href}
               className="group block bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5">
               <div className="text-3xl mb-4">{tool.icon}</div>
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="font-bold group-hover:text-accent transition-colors">{tool.name}</h3>
-                <span className="text-xs bg-white/5 border border-white/10 text-text-secondary px-2 py-0.5 rounded-full">
-                  🔒 {tool.plan}
+                <span className="text-xs bg-accent/10 border border-accent/20 text-accent px-2 py-0.5 rounded-full">
+                  {tool.plan}
                 </span>
               </div>
               <p className="text-sm text-text-secondary mb-4">{tool.desc}</p>
@@ -135,6 +135,20 @@ export default function FerramentasPage() {
                 Acessar <ArrowRight size={13} />
               </span>
             </a>
+          ) : (
+            <div key={tool.name}
+              className="block bg-card border border-border rounded-2xl p-6 opacity-40 cursor-not-allowed relative">
+              <div className="absolute top-4 right-4 text-lg">🔒</div>
+              <div className="text-3xl mb-4">{tool.icon}</div>
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="font-bold">{tool.name}</h3>
+                <span className="text-xs bg-white/5 border border-white/10 text-text-secondary px-2 py-0.5 rounded-full">
+                  Em breve
+                </span>
+              </div>
+              <p className="text-sm text-text-secondary mb-4">{tool.desc}</p>
+              <span className="text-text-secondary text-sm font-semibold">Em desenvolvimento</span>
+            </div>
           ))}
         </div>
       </div>

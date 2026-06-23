@@ -12,14 +12,10 @@ interface Props {
 const CATEGORY_META: Record<string, { emoji: string; desc: string; color: string }> = {
   'inteligencia-artificial': { emoji: '🤖', desc: 'ChatGPT, Gemini, Claude e as melhores ferramentas de IA generativa.', color: '#FFD400' },
   'tecnologia': { emoji: '⚡', desc: 'Reviews, tutoriais e dicas de ferramentas digitais.', color: '#60A5FA' },
-  'tecnologia-ia': { emoji: '⚡', desc: 'Tecnologia e Inteligência Artificial — o futuro é agora.', color: '#A855F7' },
   'financas': { emoji: '💰', desc: 'Investimentos, renda extra e controle financeiro.', color: '#34D399' },
   'produtividade': { emoji: '🚀', desc: 'Sistemas, hábitos e ferramentas para render mais.', color: '#A78BFA' },
   'marketing': { emoji: '📣', desc: 'Estratégias de conteúdo, tráfego pago e crescimento orgânico.', color: '#F472B6' },
   'negocios': { emoji: '💼', desc: 'Empreendedorismo, gestão e como escalar seu negócio.', color: '#FB923C' },
-  'carreira': { emoji: '🎯', desc: 'Desenvolvimento profissional, habilidades e crescimento na carreira.', color: '#3B82F6' },
-  'saude': { emoji: '💪', desc: 'Saúde, performance física e bem-estar para alta produtividade.', color: '#22C55E' },
-  'renda-extra': { emoji: '🚀', desc: 'Ideias, estratégias e ferramentas para gerar renda extra.', color: '#F97316' },
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

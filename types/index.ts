@@ -5,7 +5,9 @@ export interface WPPost {
   excerpt: { rendered: string }
   content: { rendered: string }
   date: string
+  modified?: string
   link: string
+  categories?: number[]
   featured_media: number
   _embedded?: {
     'wp:featuredmedia'?: Array<{ source_url: string; alt_text: string }>

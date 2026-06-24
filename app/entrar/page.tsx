@@ -35,7 +35,6 @@ function EntrarContent() {
       pwd: loginData.password,
       'wp-submit': 'Entrar',
       redirect_to: 'https://wp.veloxhub.com.br/minha-conta/',
-      testcookie: '1',
     }
     if (rememberMe) fields.rememberme = 'forever'
 

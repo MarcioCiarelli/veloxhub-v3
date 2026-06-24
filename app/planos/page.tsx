@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Check, Zap, X, Shield, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Badge } from '@/components/ui/Badge'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 const WP_BASE = 'https://wp.veloxhub.com.br'
@@ -15,8 +16,8 @@ const PLANS = [
     monthlyPrice: 0,
     annualPrice: 0,
     annualTotal: 0,
-    checkoutMonthly: `${WP_BASE}/minha-conta/`,
-    checkoutAnnual: `${WP_BASE}/minha-conta/`,
+    checkoutMonthly: '/entrar?tab=criar',
+    checkoutAnnual: '/entrar?tab=criar',
     cta: 'Criar conta grátis',
     featured: false,
     features: [
@@ -37,8 +38,8 @@ const PLANS = [
     monthlyPrice: 19,
     annualPrice: 15,
     annualTotal: 180,
-    checkoutMonthly: `${WP_BASE}/?add-to-cart=316`,
-    checkoutAnnual: `${WP_BASE}/?add-to-cart=316&billing_period=annual`,
+    checkoutMonthly: '/entrar?tab=criar&plano=starter',
+    checkoutAnnual: '/entrar?tab=criar&plano=starter&ciclo=anual',
     cta: 'Assinar Starter',
     badge: 'Mais popular',
     featured: true,
@@ -60,8 +61,8 @@ const PLANS = [
     monthlyPrice: 49,
     annualPrice: 39,
     annualTotal: 468,
-    checkoutMonthly: `${WP_BASE}/?add-to-cart=317`,
-    checkoutAnnual: `${WP_BASE}/?add-to-cart=317&billing_period=annual`,
+    checkoutMonthly: '/entrar?tab=criar&plano=pro',
+    checkoutAnnual: '/entrar?tab=criar&plano=pro&ciclo=anual',
     cta: 'Assinar Pro',
     featured: false,
     features: [
@@ -82,8 +83,8 @@ const PLANS = [
     monthlyPrice: 99,
     annualPrice: 79,
     annualTotal: 948,
-    checkoutMonthly: `${WP_BASE}/?add-to-cart=318`,
-    checkoutAnnual: `${WP_BASE}/?add-to-cart=318&billing_period=annual`,
+    checkoutMonthly: '/entrar?tab=criar&plano=business',
+    checkoutAnnual: '/entrar?tab=criar&plano=business&ciclo=anual',
     cta: 'Assinar Business',
     featured: false,
     features: [
@@ -233,16 +234,16 @@ export default function PlanosPage() {
                 ))}
               </ul>
 
-              <a
+              <Link
                 href={checkout}
                 className={cn(
-                  'w-full text-center py-2.5 rounded-xl text-sm font-bold transition-all',
+                  'w-full text-center py-2.5 rounded-xl text-sm font-bold transition-all block',
                   plan.featured
                     ? 'bg-accent text-black hover:bg-accent-hover shadow-accent'
                     : 'bg-white/5 border border-border hover:border-accent/30 hover:bg-accent/5 text-text-primary'
                 )}>
                 {plan.cta}
-              </a>
+              </Link>
             </motion.div>
           )
         })}
@@ -292,7 +293,7 @@ export default function PlanosPage() {
                 <td className="py-4 px-5" />
                 {PLANS.map(plan => (
                   <td key={plan.id} className="py-4 px-4 text-center">
-                    <a href={annual ? plan.checkoutAnnual : plan.checkoutMonthly}
+                    <Link href={annual ? plan.checkoutAnnual : plan.checkoutMonthly}
                       className={cn(
                         'inline-flex items-center gap-1 text-xs font-bold px-3 py-1.5 rounded-lg transition-all',
                         plan.featured
@@ -300,7 +301,7 @@ export default function PlanosPage() {
                           : 'border border-border hover:border-accent/30 text-text-secondary hover:text-text-primary'
                       )}>
                       {plan.id === 'free' ? 'Grátis' : 'Assinar'} <ArrowRight size={11} />
-                    </a>
+                    </Link>
                   </td>
                 ))}
               </tr>

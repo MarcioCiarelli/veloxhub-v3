@@ -22,30 +22,34 @@ const TOOLS_FREE = [
 
 const TOOLS_PAID = [
   {
+    id: 'calculadora-macros',
     icon: '💪',
     name: 'Calculadora de Macros',
     desc: 'Descubra exatamente quanto de proteína, carbo e gordura você precisa por dia para atingir seu objetivo.',
-    plan: 'Starter+',
-    href: 'https://wp.veloxhub.com.br/minha-conta/ferramentas/',
+    plan: 'Gratuita',
+    href: '/ferramentas#calculadora-macros',
     available: true,
   },
   {
+    id: 'dashboard-motorista',
     icon: '🚗',
     name: 'Dashboard do Motorista',
     desc: 'Acompanhe ganhos, gastos com combustível e lucro real por corrida em tempo real.',
-    plan: 'Starter+',
-    href: 'https://wp.veloxhub.com.br/minha-conta/motorista/',
+    plan: 'Gratuita',
+    href: '/ferramentas#dashboard-motorista',
     available: true,
   },
   {
+    id: 'calc-investimentos',
     icon: '📊',
     name: 'Calculadora de Investimentos',
     desc: 'Simule juros compostos e visualize seu patrimônio em 5, 10 e 20 anos com diferentes cenários.',
-    plan: 'Pro+',
-    href: 'https://wp.veloxhub.com.br/minha-conta/investimentos/',
+    plan: 'Gratuita',
+    href: '/ferramentas#calc-investimentos',
     available: true,
   },
   {
+    id: 'gerador-seo',
     icon: '🔍',
     name: 'Gerador SEO',
     desc: 'Títulos, meta descriptions e estrutura de artigos otimizados para o Google.',
@@ -54,6 +58,7 @@ const TOOLS_PAID = [
     available: false,
   },
   {
+    id: 'gerador-posts',
     icon: '✍️',
     name: 'Gerador de Posts',
     desc: 'Crie posts completos para blog em segundos com IA generativa.',
@@ -62,6 +67,7 @@ const TOOLS_PAID = [
     available: false,
   },
   {
+    id: 'gerador-titulos',
     icon: '💡',
     name: 'Gerador de Títulos',
     desc: '10 variações de títulos com gatilhos mentais para máximo CTR.',
@@ -121,8 +127,8 @@ export default function FerramentasPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {TOOLS_PAID.map(tool => tool.available ? (
-            <a key={tool.name} href={tool.href}
-              className="group block bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5">
+            <a key={tool.name} id={tool.id} href={tool.href}
+              className="group block bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5 scroll-mt-20">
               <div className="text-3xl mb-4">{tool.icon}</div>
               <div className="flex items-center gap-2 mb-2">
                 <h3 className="font-bold group-hover:text-accent transition-colors">{tool.name}</h3>

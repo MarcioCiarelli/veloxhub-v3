@@ -16,9 +16,10 @@ const COLUMNS = [
     title: 'Ferramentas',
     links: [
       { label: 'Hub de Ferramentas', href: '/ferramentas' },
-      { label: 'Calculadora de Macros', href: 'https://wp.veloxhub.com.br/calculadora-macros/' },
-      { label: 'Dashboard do Motorista', href: 'https://wp.veloxhub.com.br/dashboard-motorista/' },
-      { label: 'Calc. Investimentos', href: 'https://wp.veloxhub.com.br/calculadora-investimentos/' },
+      { label: 'Calculadora FIRE', href: '/ferramentas/calculadora-fire' },
+      { label: 'Calculadora de Macros', href: '/ferramentas/calculadora-macros' },
+      { label: 'Dashboard do Motorista', href: '/ferramentas/dashboard-motorista' },
+      { label: 'Calc. Investimentos', href: '/ferramentas/calculadora-investimentos' },
       { label: 'Skills para Claude', href: '/skills' },
       { label: 'Ver Planos', href: '/planos' },
     ],

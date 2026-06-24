@@ -51,7 +51,7 @@ function CheckoutContent() {
   const meta = PLAN_META[plano] ?? PLAN_META.starter
   const Icon = meta.icon
 
-  const checkoutUrl = `${WP_BASE}/?add-to-cart=${meta.cartId}`
+  const checkoutUrl = `${WP_BASE}/finalizar-compra/?add-to-cart=${meta.cartId}`
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center px-4 py-10">
@@ -118,12 +118,12 @@ function CheckoutContent() {
           className="w-full flex items-center justify-center gap-3 bg-accent text-black font-bold py-4 rounded-xl hover:bg-accent-hover transition-all shadow-accent hover:shadow-accent-lg hover:-translate-y-0.5 text-base mb-4 block text-center"
         >
           <CreditCard size={20} />
-          Finalizar assinatura
+          Ir para pagamento seguro
           <ArrowRight size={16} />
         </a>
 
         <p className="text-center text-xs text-text-secondary/60 mb-8">
-          Você será direcionado ao checkout seguro para concluir o pagamento
+          Você será direcionado para preencher seus dados e concluir o pagamento
         </p>
 
         {/* Trust badges */}

@@ -96,7 +96,7 @@ export default function Header() {
               <Link href="/planos" className="p-2 text-text-secondary hover:text-accent transition-colors rounded-lg hover:bg-white/5" title="Planos">
                 <ShoppingBag size={17} />
               </Link>
-              <Button variant="ghost" size="sm" href="https://wp.veloxhub.com.br/minha-conta/">
+              <Button variant="ghost" size="sm" href="/entrar">
                 Entrar
               </Button>
               <Button variant="primary" size="sm" href="/planos">
@@ -139,7 +139,7 @@ export default function Header() {
                 </div>
               ))}
               <div className="flex gap-2 pt-3 border-t border-border mt-2">
-                <Button variant="outline" size="sm" href="https://wp.veloxhub.com.br/minha-conta/" className="flex-1">
+                <Button variant="outline" size="sm" href="/entrar" className="flex-1">
                   Entrar
                 </Button>
                 <Button variant="primary" size="sm" href="/planos" className="flex-1">

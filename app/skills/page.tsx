@@ -95,7 +95,7 @@ export default function SkillsPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[60vh] flex items-center px-4 sm:px-6 md:px-12 pt-16 pb-8 overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center px-4 sm:px-6 md:px-12 pt-10 pb-6 overflow-hidden">
         {/* Matrix rain effect */}
         <canvas id="matrix-rain" className="absolute inset-0 pointer-events-none opacity-[0.12]" />
         <script dangerouslySetInnerHTML={{ __html: `
@@ -149,7 +149,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className={`${bebas.className} text-[clamp(40px,7vw,80px)] leading-[.92] tracking-wider mb-5`}>
+            className={`${bebas.className} text-[clamp(36px,6vw,72px)] leading-[.92] tracking-wider mb-4`}>
             O CLAUDE<br />
             <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.2)', color: 'transparent' }}>SOZINHO</span><br />
             <span className="text-gradient">VALE POUCO.</span>
@@ -159,7 +159,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-text-secondary text-lg max-w-lg leading-relaxed font-light mb-5">
+            className="text-text-secondary text-base max-w-lg leading-relaxed font-light mb-4">
             Com as <strong className="text-text-primary font-semibold">Skills certas instaladas</strong>, ele para
             de responder de forma genérica e começa a executar como um especialista sênior — no seu tom, no seu
             formato, com a sua profundidade.
@@ -169,7 +169,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="flex items-baseline gap-4 mb-5">
+            className="flex items-baseline gap-4 mb-4">
             <span className="text-text-secondary text-lg line-through">R$197</span>
             <span className={`${bebas.className} text-6xl text-accent leading-none tracking-wide`}>R$47</span>
             <span className="text-text-secondary text-sm leading-snug">pagamento único<br />acesso vitalício</span>
@@ -196,7 +196,7 @@ export default function SkillsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="flex gap-9 mt-7 pt-6 border-t border-white/5">
+            className="flex gap-9 mt-5 pt-5 border-t border-white/5">
             {STATS.map(({ num, label }) => (
               <div key={label}>
                 <div className={`${bebas.className} text-3xl text-accent tracking-wider`}>{num}</div>
@@ -241,7 +241,7 @@ export default function SkillsPage() {
       </div>
 
       {/* ── PROBLEMA ── */}
-      <section className="py-14 px-6 md:px-12 bg-card border-y border-white/5">
+      <section className="py-10 px-6 md:px-12 bg-card border-y border-white/5">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -310,7 +310,7 @@ export default function SkillsPage() {
       </section>
 
       {/* ── SKILLS GRID ── */}
-      <section className="py-14 px-6 md:px-12 bg-bg">
+      <section className="py-10 px-6 md:px-12 bg-bg">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -406,7 +406,7 @@ export default function SkillsPage() {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="py-14 px-6 md:px-12 text-center relative overflow-hidden">
+      <section className="py-10 px-6 md:px-12 text-center relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,212,0,0.06) 0%,transparent 70%)' }}
@@ -465,7 +465,7 @@ export default function SkillsPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-14 px-6 md:px-12 bg-card border-t border-white/5">
+      <section className="py-10 px-6 md:px-12 bg-card border-t border-white/5">
         <div className="text-center mb-8">
           <SectionLabel>Dúvidas frequentes</SectionLabel>
           <h2 className={`${bebas.className} text-4xl tracking-wider`}>FAQ</h2>

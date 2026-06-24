@@ -9,16 +9,16 @@ const COLUMNS = [
       { label: 'Artigos', href: '/blog' },
       { label: 'Contato', href: '/contato' },
       { label: 'Newsletter', href: '/newsletter' },
-      { label: 'Área de Membros', href: '/membros' },
+      { label: 'Área de Membros', href: '/entrar' },
     ],
   },
   {
     title: 'Ferramentas',
     links: [
       { label: 'Hub de Ferramentas', href: '/ferramentas' },
-      { label: 'Calculadora de Macros', href: '/ferramentas' },
-      { label: 'Dashboard do Motorista', href: '/ferramentas' },
-      { label: 'Calc. Investimentos', href: '/ferramentas' },
+      { label: 'Calculadora de Macros', href: 'https://wp.veloxhub.com.br/minha-conta/ferramentas/' },
+      { label: 'Dashboard do Motorista', href: 'https://wp.veloxhub.com.br/minha-conta/motorista/' },
+      { label: 'Calc. Investimentos', href: 'https://wp.veloxhub.com.br/minha-conta/investimentos/' },
       { label: 'Skills para Claude', href: '/skills' },
       { label: 'Ver Planos', href: '/planos' },
     ],
@@ -114,10 +114,17 @@ export default function Footer() {
               <ul className="flex flex-col gap-2.5">
                 {col.links.map((link) => (
                   <li key={link.href + link.label}>
-                    <Link href={link.href}
-                      className="text-sm text-text-secondary hover:text-text-primary transition-colors">
-                      {link.label}
-                    </Link>
+                    {link.href.startsWith('http') ? (
+                      <a href={link.href}
+                        className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link href={link.href}
+                        className="text-sm text-text-secondary hover:text-text-primary transition-colors">
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -9,7 +9,7 @@ const COLUMNS = [
       { label: 'Artigos', href: '/blog' },
       { label: 'Contato', href: '/contato' },
       { label: 'Newsletter', href: '/newsletter' },
-      { label: 'Área de Membros', href: 'https://wp.veloxhub.com.br/minha-conta/' },
+      { label: 'Área de Membros', href: '/membros' },
     ],
   },
   {

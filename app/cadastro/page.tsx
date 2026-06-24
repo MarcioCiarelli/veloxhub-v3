@@ -2,7 +2,7 @@
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-import { Zap, Eye, EyeOff, UserPlus, Loader2, Shield, Check, LogIn } from 'lucide-react'
+import { Zap, Eye, EyeOff, UserPlus, Loader2, Shield, Check, LogIn, Rocket, Crown, Building2, Star } from 'lucide-react'
 
 const WP_LOGIN = 'https://wp.veloxhub.com.br/minha-conta/'
 
@@ -15,12 +15,13 @@ function authSyncUrl(dest: string) {
 
 const PLAN_META: Record<string, {
   name: string; price: string; desc: string
-  color: string; checkoutUrl: string
+  color: string; bg: string; glow: string; iconBg: string
+  icon: typeof Zap; checkoutUrl: string
 }> = {
-  free:     { name: 'Free',     price: 'Grátis',   desc: 'Blog, newsletter e ferramentas básicas.',             color: 'border-border',         checkoutUrl: authSyncUrl(WP_DASHBOARD) },
-  starter:  { name: 'Starter',  price: 'R$19/mês', desc: 'Calculadoras, Dashboard Saúde & Carreira.',           color: 'border-accent/50',       checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=316') },
-  pro:      { name: 'Pro',      price: 'R$49/mês', desc: 'Tudo do Starter + Finanças, Investimentos e IA.',     color: 'border-purple-500/50',   checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=317') },
-  business: { name: 'Business', price: 'R$99/mês', desc: 'Acesso total a todos os recursos atuais e futuros.',  color: 'border-emerald-500/50',  checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=318') },
+  free:     { name: 'Free',     price: 'Grátis',   desc: 'Blog, newsletter e ferramentas básicas.',             color: 'border-border',          bg: 'bg-card',                    glow: '',                                          iconBg: 'bg-white/10',           icon: Zap,        checkoutUrl: authSyncUrl(WP_DASHBOARD) },
+  starter:  { name: 'Starter',  price: 'R$19/mês', desc: 'Calculadoras, Dashboard Saúde & Carreira.',           color: 'border-accent/50',       bg: 'bg-accent/[0.06]',           glow: 'shadow-[0_0_24px_rgba(255,212,0,0.12)]',    iconBg: 'bg-accent',             icon: Rocket,     checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=316') },
+  pro:      { name: 'Pro',      price: 'R$49/mês', desc: 'Tudo do Starter + Finanças, Investimentos e IA.',     color: 'border-purple-500/50',   bg: 'bg-purple-500/[0.06]',       glow: 'shadow-[0_0_24px_rgba(168,85,247,0.12)]',   iconBg: 'bg-purple-500',         icon: Crown,      checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=317') },
+  business: { name: 'Business', price: 'R$99/mês', desc: 'Acesso total a todos os recursos atuais e futuros.',  color: 'border-emerald-500/50',  bg: 'bg-emerald-500/[0.06]',      glow: 'shadow-[0_0_24px_rgba(16,185,129,0.12)]',   iconBg: 'bg-emerald-500',        icon: Building2,  checkoutUrl: authSyncUrl('https://wp.veloxhub.com.br/checkout/?add-to-cart=318') },
 }
 
 function CadastroContent() {
@@ -64,19 +65,33 @@ function CadastroContent() {
         </div>
 
         {/* Plan badge */}
-        <div className={`bg-card border ${meta.color} rounded-2xl p-4 mb-6 flex items-center gap-3`}>
-          <div className="w-9 h-9 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
-            <Zap size={16} className="text-black" fill="black" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs text-text-secondary uppercase tracking-widest font-semibold">Plano selecionado</p>
-            <p className="font-black text-base leading-tight">VeloxHub {meta.name} <span className="text-accent font-bold text-sm">{meta.price}</span></p>
-            <p className="text-xs text-text-secondary truncate">{meta.desc}</p>
-          </div>
-          <Link href="/planos" className="text-xs text-text-secondary hover:text-accent transition-colors whitespace-nowrap flex-shrink-0">
-            Mudar
-          </Link>
-        </div>
+        {(() => {
+          const Icon = meta.icon
+          return (
+            <div className={`${meta.bg} border ${meta.color} ${meta.glow} rounded-2xl p-5 mb-6 relative overflow-hidden`}>
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-current to-transparent opacity-30" />
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 ${meta.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                  <Icon size={20} className="text-black" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <Star size={10} className="text-accent" fill="currentColor" />
+                    <p className="text-[10px] text-accent uppercase tracking-[3px] font-bold">Plano selecionado</p>
+                  </div>
+                  <p className="font-black text-lg leading-tight tracking-tight">
+                    {meta.name}
+                    <span className="ml-2 text-accent text-base">{meta.price}</span>
+                  </p>
+                  <p className="text-xs text-text-secondary mt-0.5">{meta.desc}</p>
+                </div>
+              </div>
+              <Link href="/planos" className="absolute top-4 right-4 text-[10px] text-text-secondary hover:text-accent transition-colors underline underline-offset-2 decoration-dotted">
+                Trocar plano
+              </Link>
+            </div>
+          )
+        })()}
 
         {/* Registration form */}
         <form

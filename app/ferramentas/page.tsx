@@ -1,89 +1,92 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Lock, ArrowRight, Zap } from 'lucide-react'
+import { Lock, ArrowRight, Zap, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Ferramentas — Calculadoras e dashboards para assinantes',
-  description: 'Ferramentas exclusivas VeloxHub: calculadora de macros, dashboard do motorista, calculadora de investimentos e muito mais.',
+  description: 'Ferramentas exclusivas VeloxHub: calculadora de macros, dashboard do motorista, calculadora de investimentos, FIRE e muito mais.',
 }
 
 const TOOLS_FREE = [
+  {
+    icon: '🔥',
+    name: 'Calculadora FIRE',
+    desc: 'Descubra quando você pode atingir independência financeira e se aposentar mais cedo.',
+    badge: 'Grátis',
+    badgeColor: 'text-green-400 bg-green-500/10 border border-green-500/20',
+    href: '/ferramentas/calculadora-fire',
+    cta: 'Acessar calculadora',
+  },
   {
     icon: '⚡',
     name: 'Skills para Claude',
     desc: '20 automações prontas para publicar em 5 redes sociais sem esforço.',
     badge: 'R$47',
-    badgeColor: 'text-accent bg-accent/10',
+    badgeColor: 'text-accent bg-accent/10 border border-accent/20',
     href: '/skills',
     cta: 'Ver Skills',
-    free: true,
   },
 ]
 
 const TOOLS_PAID = [
   {
-    id: 'calculadora-macros',
     icon: '💪',
     name: 'Calculadora de Macros',
     desc: 'Descubra exatamente quanto de proteína, carbo e gordura você precisa por dia para atingir seu objetivo.',
-    plan: 'Gratuita',
-    href: 'https://wp.veloxhub.com.br/calculadora-macros/',
-    available: true,
+    plan: 'Starter+',
+    href: '/ferramentas/calculadora-macros',
+    ready: true,
   },
   {
-    id: 'dashboard-motorista',
     icon: '🚗',
     name: 'Dashboard do Motorista',
     desc: 'Acompanhe ganhos, gastos com combustível e lucro real por corrida em tempo real.',
-    plan: 'Gratuita',
-    href: 'https://wp.veloxhub.com.br/dashboard-motorista/',
-    available: true,
+    plan: 'Starter+',
+    href: '/ferramentas/dashboard-motorista',
+    ready: true,
   },
   {
-    id: 'calc-investimentos',
     icon: '📊',
     name: 'Calculadora de Investimentos',
     desc: 'Simule juros compostos e visualize seu patrimônio em 5, 10 e 20 anos com diferentes cenários.',
-    plan: 'Gratuita',
-    href: 'https://wp.veloxhub.com.br/calculadora-investimentos/',
-    available: true,
+    plan: 'Pro+',
+    href: '/ferramentas/calculadora-investimentos',
+    ready: true,
   },
   {
-    id: 'gerador-seo',
     icon: '🔍',
     name: 'Gerador SEO',
     desc: 'Títulos, meta descriptions e estrutura de artigos otimizados para o Google.',
     plan: 'Pro+',
-    href: '/ferramentas',
-    available: false,
+    href: '/planos',
+    ready: false,
   },
   {
-    id: 'gerador-posts',
     icon: '✍️',
     name: 'Gerador de Posts',
     desc: 'Crie posts completos para blog em segundos com IA generativa.',
     plan: 'Pro+',
-    href: '/ferramentas',
-    available: false,
+    href: '/planos',
+    ready: false,
   },
   {
-    id: 'gerador-titulos',
     icon: '💡',
     name: 'Gerador de Títulos',
     desc: '10 variações de títulos com gatilhos mentais para máximo CTR.',
     plan: 'Pro+',
-    href: '/ferramentas',
-    available: false,
+    href: '/planos',
+    ready: false,
   },
 ]
 
 export default function FerramentasPage() {
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
 
-      <div className="mb-12">
-        <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">Ferramentas</p>
-        <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-4">
+      {/* Header — mesma estrutura das páginas de categoria */}
+      <div className="mb-12 pb-12 border-b border-border">
+        <div className="text-4xl mb-4">🛠️</div>
+        <h1 className="text-4xl sm:text-5xl font-black tracking-tight mb-3">
           Ferramentas VeloxHub
         </h1>
         <p className="text-text-secondary max-w-xl text-lg">
@@ -91,7 +94,7 @@ export default function FerramentasPage() {
         </p>
       </div>
 
-      {/* Ferramenta gratuita */}
+      {/* Ferramentas gratuitas */}
       <div className="mb-12">
         <h2 className="text-sm font-bold uppercase tracking-widest text-accent mb-4">Disponível para todos</h2>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -100,7 +103,7 @@ export default function FerramentasPage() {
               className="group flex items-start gap-4 bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5">
               <div className="text-3xl flex-shrink-0">{tool.icon}</div>
               <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
                   <h3 className="font-bold group-hover:text-accent transition-colors">{tool.name}</h3>
                   <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${tool.badgeColor}`}>{tool.badge}</span>
                 </div>
@@ -126,35 +129,36 @@ export default function FerramentasPage() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {TOOLS_PAID.map(tool => tool.available ? (
-            <a key={tool.name} id={tool.id} href={tool.href}
-              className="group block bg-card border border-border rounded-2xl p-6 hover:border-accent/30 transition-all hover:-translate-y-0.5 scroll-mt-20">
+          {TOOLS_PAID.map(tool => (
+            <Link key={tool.name} href={tool.href}
+              className={`group block rounded-2xl p-6 transition-all hover:-translate-y-0.5 relative overflow-hidden
+                ${tool.ready
+                  ? 'bg-card border border-border hover:border-accent/30'
+                  : 'bg-card/50 border border-border/40 opacity-65 hover:opacity-85'}`}>
+              {!tool.ready && (
+                <div className="absolute top-3 right-3 flex items-center gap-1 bg-white/5 border border-white/10 px-2 py-0.5 rounded-full">
+                  <Clock size={10} className="text-text-secondary" />
+                  <span className="text-xs text-text-secondary">Em preparação</span>
+                </div>
+              )}
               <div className="text-3xl mb-4">{tool.icon}</div>
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2 flex-wrap">
                 <h3 className="font-bold group-hover:text-accent transition-colors">{tool.name}</h3>
-                <span className="text-xs bg-accent/10 border border-accent/20 text-accent px-2 py-0.5 rounded-full">
-                  {tool.plan}
-                </span>
-              </div>
-              <p className="text-sm text-text-secondary mb-4">{tool.desc}</p>
-              <span className="text-accent text-sm font-semibold flex items-center gap-1">
-                Acessar <ArrowRight size={13} />
-              </span>
-            </a>
-          ) : (
-            <div key={tool.name}
-              className="block bg-card border border-border rounded-2xl p-6 opacity-40 cursor-not-allowed relative">
-              <div className="absolute top-4 right-4 text-lg">🔒</div>
-              <div className="text-3xl mb-4">{tool.icon}</div>
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="font-bold">{tool.name}</h3>
                 <span className="text-xs bg-white/5 border border-white/10 text-text-secondary px-2 py-0.5 rounded-full">
-                  Em breve
+                  {tool.ready ? '🔒' : '🛠️'} {tool.plan}
                 </span>
               </div>
               <p className="text-sm text-text-secondary mb-4">{tool.desc}</p>
-              <span className="text-text-secondary text-sm font-semibold">Em desenvolvimento</span>
-            </div>
+              {tool.ready ? (
+                <span className="text-accent text-sm font-semibold flex items-center gap-1">
+                  Acessar <ArrowRight size={13} />
+                </span>
+              ) : (
+                <span className="text-text-secondary text-sm font-semibold flex items-center gap-1">
+                  <Lock size={12} /> Em desenvolvimento — ver planos
+                </span>
+              )}
+            </Link>
           ))}
         </div>
       </div>

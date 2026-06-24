@@ -2,9 +2,20 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
-export default function MinhaContaPage() {
+interface Props {
+  params: { path?: string[] }
+}
+
+export default function MinhaContaPathPage({ params }: Props) {
   const router = useRouter()
   useEffect(() => {
+    const sub = params.path?.join('/') ?? ''
+    // Keep lost-password working — forward to WP
+    if (sub === 'lost-password') {
+      window.location.href = 'https://wp.veloxhub.com.br/minha-conta/lost-password/'
+      return
+    }
+    // Everything else → membros (if logged in) or /entrar
     try {
       const raw = localStorage.getItem('vhd_logged')
       if (raw) {
@@ -16,7 +27,7 @@ export default function MinhaContaPage() {
       }
     } catch {}
     router.replace('/entrar')
-  }, [router])
+  }, [params.path, router])
 
   return null
 }

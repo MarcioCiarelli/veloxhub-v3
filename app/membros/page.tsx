@@ -4,16 +4,17 @@ import Link from 'next/link'
 import { Zap, Lock, ArrowRight } from 'lucide-react'
 
 const TOOLS = [
-  { name: 'Calculadora de Macros', desc: 'Descubra proteína, carbo e gordura ideais por dia.', icon: '💪', plan: 'Starter', href: '/ferramentas' },
-  { name: 'Dashboard do Motorista', desc: 'Ganhos, gastos e lucro real por corrida em tempo real.', icon: '🚗', plan: 'Starter', href: '/ferramentas' },
-  { name: 'Calculadora de Investimentos', desc: 'Simule juros compostos e visualize seu patrimônio.', icon: '📊', plan: 'Pro', href: '/ferramentas' },
-  { name: 'Finanças Pessoais', desc: 'Receitas, despesas, financiamento e orçamento completo.', icon: '💰', plan: 'Pro', href: '/ferramentas' },
-  { name: 'Contabilidade', desc: 'INSS, IRPF, DAS MEI e controle tributário.', icon: '📋', plan: 'Business', href: '/ferramentas' },
+  { name: 'Saúde & Hábitos', desc: 'Peso, sono, água, IMC e % BF com gráficos de evolução.', icon: '❤️', plan: 'Starter' },
+  { name: 'Carreira & Metas', desc: 'Registre objetivos, conquistas e evolução profissional.', icon: '🚀', plan: 'Starter' },
+  { name: 'Finanças Pessoais', desc: 'Controle receitas, despesas, contas fixas e saldo bancário.', icon: '💰', plan: 'Pro' },
+  { name: 'Motorista App', desc: 'Ganho líquido, R$/hora, km rodados e custo por km.', icon: '🚗', plan: 'Pro' },
+  { name: 'Investimentos', desc: 'Portfólio com cotações ao vivo B3 + EUA e alocação por classe.', icon: '📈', plan: 'Pro' },
+  { name: 'Contabilidade', desc: 'DRE, faturamento e gestão empresarial para MEI e CNPJ.', icon: '📋', plan: 'Business' },
 ]
 
 export default function MembrosPage() {
   useEffect(() => {
-    window.location.href = 'https://wp.veloxhub.com.br/membros/'
+    window.location.href = 'https://wp.veloxhub.com.br/minha-conta/'
   }, [])
 
   return (

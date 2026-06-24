@@ -95,9 +95,8 @@ export default function SkillsPage() {
       `}</style>
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[50vh] flex items-center px-4 sm:px-6 md:px-12 pt-10 pb-6 overflow-hidden">
-        {/* Matrix rain effect */}
-        <canvas id="matrix-rain" className="absolute inset-0 pointer-events-none opacity-[0.12]" />
+      <section className="relative min-h-[50vh] flex items-center pt-10 pb-6 overflow-hidden">
+        <canvas id="matrix-rain" className="absolute inset-x-0 top-0 bottom-0 mx-auto max-w-7xl pointer-events-none opacity-[0.12]" />
         <script dangerouslySetInnerHTML={{ __html: `
           (function(){
             var c=document.getElementById('matrix-rain');if(!c)return;
@@ -122,9 +121,8 @@ export default function SkillsPage() {
             setInterval(draw,45);
           })();
         `}} />
-        {/* grid bg */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none max-w-7xl mx-auto"
           style={{
             backgroundImage:
               'linear-gradient(rgba(255,212,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,212,0,0.04) 1px,transparent 1px)',
@@ -135,8 +133,9 @@ export default function SkillsPage() {
         <div className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-accent/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-accent/6 blur-3xl pointer-events-none" />
 
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10">
         {/* content */}
-        <div className="relative z-10 max-w-2xl">
+        <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -207,7 +206,7 @@ export default function SkillsPage() {
         </div>
 
         {/* float cards desktop */}
-        <div className="absolute right-12 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3 z-10">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3">
           {FLOAT_CARDS.map((card, i) => (
             <motion.div
               key={i}
@@ -225,6 +224,7 @@ export default function SkillsPage() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </section>
 

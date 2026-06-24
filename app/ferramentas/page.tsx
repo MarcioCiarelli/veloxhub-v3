@@ -27,7 +27,7 @@ const TOOLS_PAID = [
     name: 'Calculadora de Macros',
     desc: 'Descubra exatamente quanto de proteína, carbo e gordura você precisa por dia para atingir seu objetivo.',
     plan: 'Gratuita',
-    href: '/ferramentas#calculadora-macros',
+    href: 'https://wp.veloxhub.com.br/calculadora-macros/',
     available: true,
   },
   {
@@ -36,7 +36,7 @@ const TOOLS_PAID = [
     name: 'Dashboard do Motorista',
     desc: 'Acompanhe ganhos, gastos com combustível e lucro real por corrida em tempo real.',
     plan: 'Gratuita',
-    href: '/ferramentas#dashboard-motorista',
+    href: 'https://wp.veloxhub.com.br/dashboard-motorista/',
     available: true,
   },
   {
@@ -45,7 +45,7 @@ const TOOLS_PAID = [
     name: 'Calculadora de Investimentos',
     desc: 'Simule juros compostos e visualize seu patrimônio em 5, 10 e 20 anos com diferentes cenários.',
     plan: 'Gratuita',
-    href: '/ferramentas#calc-investimentos',
+    href: 'https://wp.veloxhub.com.br/calculadora-investimentos/',
     available: true,
   },
   {

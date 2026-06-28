@@ -19,23 +19,6 @@ export default function BackupPage() {
   const [decision, setDecision] = useState<'approved' | 'rejected' | null>(null)
   const [loading, setLoading] = useState(true)
 
-  // Ocultar header/footer do site nesta página
-  useEffect(() => {
-    const header = document.querySelector('header') as HTMLElement | null
-    const footer = document.querySelector('footer') as HTMLElement | null
-    const spacer = document.querySelector('header + div') as HTMLElement | null
-    if (header) { header.style.display = 'none' }
-    if (footer) { footer.style.display = 'none' }
-    if (spacer) { spacer.style.display = 'none' }
-    document.body.style.background = '#080808'
-    return () => {
-      if (header) { header.style.display = '' }
-      if (footer) { footer.style.display = '' }
-      if (spacer) { spacer.style.display = '' }
-      document.body.style.background = ''
-    }
-  }, [])
-
   useEffect(() => {
     fetch('/backup-proposals.json?t=' + Date.now())
       .then(r => r.json())

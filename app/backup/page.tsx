@@ -12,20 +12,29 @@ interface Proposal {
   createdAt: string
 }
 
-const HIDE_LAYOUT = `
-  header, footer, [class*="header"], [class*="Header"], [class*="footer"], [class*="Footer"] {
-    display: none !important;
-  }
-  main { padding-top: 0 !important; margin-top: 0 !important; }
-  body { background: #080808 !important; min-height: 100vh; }
-`
-
 export default function BackupPage() {
   const [proposal, setProposal] = useState<Proposal | null>(null)
   const [hasProposal, setHasProposal] = useState(false)
   const [status, setStatus] = useState<'idle' | 'loading_action' | 'done'>('idle')
   const [decision, setDecision] = useState<'approved' | 'rejected' | null>(null)
   const [loading, setLoading] = useState(true)
+
+  // Ocultar header/footer do site nesta página
+  useEffect(() => {
+    const header = document.querySelector('header') as HTMLElement | null
+    const footer = document.querySelector('footer') as HTMLElement | null
+    const spacer = document.querySelector('header + div') as HTMLElement | null
+    if (header) { header.style.display = 'none' }
+    if (footer) { footer.style.display = 'none' }
+    if (spacer) { spacer.style.display = 'none' }
+    document.body.style.background = '#080808'
+    return () => {
+      if (header) { header.style.display = '' }
+      if (footer) { footer.style.display = '' }
+      if (spacer) { spacer.style.display = '' }
+      document.body.style.background = ''
+    }
+  }, [])
 
   useEffect(() => {
     fetch('/backup-proposals.json?t=' + Date.now())
@@ -55,7 +64,6 @@ export default function BackupPage() {
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: HIDE_LAYOUT }} />
       <div className="min-h-screen bg-[#080808] text-white flex flex-col font-sans">
 
         {/* Topbar */}

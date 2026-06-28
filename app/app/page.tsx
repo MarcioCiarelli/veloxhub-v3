@@ -192,8 +192,14 @@ function LoginScreen({ onLogin }: { onLogin: (a: AuthState) => void }) {
 }
 
 // ─── Tab Registrar ────────────────────────────────────────────────────────────
+function todayBR() {
+  // Usa fuso horário de São Paulo para evitar bug de data UTC (22h BR = dia seguinte UTC)
+  return new Date().toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' })
+    .split('/').reverse().join('-')
+}
+
 function TabRegistrar({ auth }: { auth: AuthState }) {
-  const today = new Date().toISOString().split('T')[0]
+  const today = todayBR()
   const [form, setForm] = useState({
     data: today,
     horas: '',
